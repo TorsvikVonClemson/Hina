@@ -1,0 +1,17 @@
+#Races
+#    50% Human
+#    10% Half Elf
+#    10% Dwarf
+#    10% Halfling
+#    15% Uncommon Races
+#        3% Wood Elf
+#        3% Orc Merchant
+#        3% Goblin Merchant
+#        3% Kobold Pilgrim
+#        3% Foreigner 
+#    5% Rare Races
+#        1% Oni
+#        1% Elven Spy
+#        1% Drow Refugee
+#        1% Fairy
+#        1% Ogre
