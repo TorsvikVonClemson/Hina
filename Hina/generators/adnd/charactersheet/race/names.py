@@ -8,7 +8,7 @@ def roll(race,gender):
 
     if race == 'Human' or race== 'Half-Elf':
         if gender == 'Male':
-            with open("/home/torsvik/Documents/Python/Hina/generators/adnd/charactersheet/Resources/Names/germanmalenames.txt","r") as text_file:
+            with open("/home/torsvik/Documents/Python/Hina/generators/adnd/charactersheet/resources/names/germanmalenames.txt","r") as text_file:
 
                 firstname=text_file.readlines()
 
@@ -19,7 +19,7 @@ def roll(race,gender):
             first=first.rstrip('\n')
         
         else:
-            with open("/home/torsvik/Documents/Python/Hina/generators/adnd/charactersheet/Resources/Names/germanfemalenames.txt","r") as text_file:
+            with open("/home/torsvik/Documents/Python/Hina/generators/adnd/charactersheet/resources/names/germanfemalenames.txt","r") as text_file:
 
                 firstname=text_file.readlines()
 
@@ -29,7 +29,7 @@ def roll(race,gender):
 
             first=first.rstrip('\n')
 
-        with open("/home/torsvik/Documents/Python/Hina/generators/adnd/charactersheet/Resources/Names/germansurnames.txt","r") as text_file:
+        with open("/home/torsvik/Documents/Python/Hina/generators/adnd/charactersheet/resources/names/germansurnames.txt","r") as text_file:
 
             surname=text_file.readlines()
 

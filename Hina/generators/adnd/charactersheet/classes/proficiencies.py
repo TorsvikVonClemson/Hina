@@ -6,7 +6,7 @@ def roll(race,playerclass,intel):
     proffinal=[]
 
 #------------------------#
-# Starting Proficiencies #
+# Starting proficiencies #
 #------------------------#
 
     proffinal.append('Language (Faustic)')
@@ -44,7 +44,7 @@ def roll(race,playerclass,intel):
 
 
 #-------------------------------#
-# Count Number of Proficiencies #
+# Count Number of proficiencies #
 #-------------------------------#
 
     if playerclass=='Cleric':
@@ -90,59 +90,59 @@ def roll(race,playerclass,intel):
 
 
 #----------------------------#
-# Fill General Proficiencies #
+# Fill General proficiencies #
 #----------------------------#
 
 
-    with open("/home/torsvik/Documents/Python/Hina/generators/adnd/charactersheet/Resources/Proficiencies/general.txt","r") as text_file:
+    with open("/home/torsvik/Documents/Python/Hina/generators/adnd/charactersheet/resources/proficiencies/general.txt","r") as text_file:
 
        proflist=text_file.readlines()
 
        text_file.close()
 
 #---------------------------#
-# Fill Cleric Proficiencies #
+# Fill Cleric proficiencies #
 #---------------------------#
 
     if playerclass == 'Cleric':
         
-        with open("/home/torsvik/Documents/Python/Hina/generators/adnd/charactersheet/Resources/Proficiencies/priest.txt","r") as text_file:
+        with open("/home/torsvik/Documents/Python/Hina/generators/adnd/charactersheet/resources/proficiencies/priest.txt","r") as text_file:
 
             proflist.extend(text_file.readlines())
 
             text_file.close()
 
 #--------------------------#
-# Fill Rogue Proficiencies #
+# Fill Rogue proficiencies #
 #--------------------------#
 
     if playerclass == 'Rogue':
         
-        with open("/home/torsvik/Documents/Python/Hina/generators/adnd/charactersheet/Resources/Proficiencies/rogue.txt","r") as text_file:
+        with open("/home/torsvik/Documents/Python/Hina/generators/adnd/charactersheet/resources/proficiencies/rogue.txt","r") as text_file:
 
             proflist.extend(text_file.readlines())
 
             text_file.close()
 
 #----------------------------#
-# Fill Fighter Proficiencies #
+# Fill Fighter proficiencies #
 #----------------------------#
 
     if playerclass == 'Fighter':
         
-        with open("/home/torsvik/Documents/Python/Hina/generators/adnd/charactersheet/Resources/Proficiencies/warrior.txt","r") as text_file:
+        with open("/home/torsvik/Documents/Python/Hina/generators/adnd/charactersheet/resources/proficiencies/warrior.txt","r") as text_file:
 
             proflist.extend(text_file.readlines())
 
             text_file.close()
 
 #---------------------------#
-# Fill Wizard Proficiencies #
+# Fill Wizard proficiencies #
 #---------------------------#
 
     if playerclass == 'Wizard':
         
-        with open("/home/torsvik/Documents/Python/Hina/generators/adnd/charactersheet/Resources/Proficiencies/wizard.txt","r") as text_file:
+        with open("/home/torsvik/Documents/Python/Hina/generators/adnd/charactersheet/resources/proficiencies/wizard.txt","r") as text_file:
 
             proflist.extend(text_file.readlines())
 
