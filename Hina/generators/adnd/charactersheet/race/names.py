@@ -1,4 +1,5 @@
 import random
+import os
 
 def roll(race,gender):
 
@@ -8,7 +9,10 @@ def roll(race,gender):
 
     if race == 'Human' or race== 'Half-Elf':
         if gender == 'Male':
-            with open("/home/torsvik/Documents/Python/Hina/generators/adnd/charactersheet/resources/names/germanmalenames.txt","r") as text_file:
+            file = "/generators/adnd/charactersheet/resources/names/germanmalenames.txt"
+            path=os.getcwd()+file
+            fp=open(path,'r+');
+            with open(path,"r") as text_file:
 
                 firstname=text_file.readlines()
 
@@ -19,8 +23,11 @@ def roll(race,gender):
             first=first.rstrip('\n')
         
         else:
-            with open("/home/torsvik/Documents/Python/Hina/generators/adnd/charactersheet/resources/names/germanfemalenames.txt","r") as text_file:
-
+            file = "/generators/adnd/charactersheet/resources/names/germanfemalenames.txt"
+            path=os.getcwd()+file
+            fp=open(path,'r+');
+            with open(path,"r") as text_file:
+            
                 firstname=text_file.readlines()
 
             text_file.close()
@@ -29,7 +36,10 @@ def roll(race,gender):
 
             first=first.rstrip('\n')
 
-        with open("/home/torsvik/Documents/Python/Hina/generators/adnd/charactersheet/resources/names/germansurnames.txt","r") as text_file:
+        file = "/generators/adnd/charactersheet/resources/names/germansurnames.txt"
+        path=os.getcwd()+file
+        fp=open(path,'r+');
+        with open(path,"r") as text_file:
 
             surname=text_file.readlines()
 

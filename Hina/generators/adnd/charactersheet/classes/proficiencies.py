@@ -1,4 +1,5 @@
 import random
+import os
 
 
 def roll(race,playerclass,intel):
@@ -93,8 +94,10 @@ def roll(race,playerclass,intel):
 # Fill General proficiencies #
 #----------------------------#
 
-
-    with open("/home/torsvik/Documents/Python/Hina/generators/adnd/charactersheet/resources/proficiencies/general.txt","r") as text_file:
+    file = "/generators/adnd/charactersheet/resources/proficiencies/general.txt"
+    path=os.getcwd()+file
+    fp=open(path,'r+');
+    with open(path,"r") as text_file:
 
        proflist=text_file.readlines()
 
@@ -105,8 +108,12 @@ def roll(race,playerclass,intel):
 #---------------------------#
 
     if playerclass == 'Cleric':
-        
-        with open("/home/torsvik/Documents/Python/Hina/generators/adnd/charactersheet/resources/proficiencies/priest.txt","r") as text_file:
+
+        file = "/generators/adnd/charactersheet/resources/proficiencies/priest.txt"
+        path=os.getcwd()+file
+        fp=open(path,'r+');
+        with open(path,"r") as text_file:
+
 
             proflist.extend(text_file.readlines())
 
@@ -117,8 +124,12 @@ def roll(race,playerclass,intel):
 #--------------------------#
 
     if playerclass == 'Rogue':
-        
-        with open("/home/torsvik/Documents/Python/Hina/generators/adnd/charactersheet/resources/proficiencies/rogue.txt","r") as text_file:
+
+        file = "/generators/adnd/charactersheet/resources/proficiencies/rogue.txt"
+        path=os.getcwd()+file
+        fp=open(path,'r+');
+        with open(path,"r") as text_file:
+
 
             proflist.extend(text_file.readlines())
 
@@ -129,8 +140,11 @@ def roll(race,playerclass,intel):
 #----------------------------#
 
     if playerclass == 'Fighter':
-        
-        with open("/home/torsvik/Documents/Python/Hina/generators/adnd/charactersheet/resources/proficiencies/warrior.txt","r") as text_file:
+
+        file = "/generators/adnd/charactersheet/resources/proficiencies/warrior.txt"
+        path=os.getcwd()+file
+        fp=open(path,'r+');
+        with open(path,"r") as text_file:
 
             proflist.extend(text_file.readlines())
 
@@ -141,8 +155,11 @@ def roll(race,playerclass,intel):
 #---------------------------#
 
     if playerclass == 'Wizard':
-        
-        with open("/home/torsvik/Documents/Python/Hina/generators/adnd/charactersheet/resources/proficiencies/wizard.txt","r") as text_file:
+
+        file = "/generators/adnd/charactersheet/resources/proficiencies/wizard.txt"
+        path=os.getcwd()+file
+        fp=open(path,'r+');
+        with open(path,"r") as text_file:
 
             proflist.extend(text_file.readlines())
 

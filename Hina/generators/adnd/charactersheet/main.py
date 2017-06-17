@@ -1,9 +1,14 @@
+import os
+from reportlab.pdfgen import canvas
+from generators.adnd.charactersheet import pdfwriter
+
 from generators.adnd.charactersheet.race import races
 from generators.adnd.charactersheet.race import genders
 from generators.adnd.charactersheet.race import names
 from generators.adnd.charactersheet.classes import classes
 from generators.adnd.charactersheet.classes import attribute
 from generators.adnd.charactersheet.classes import proficiencies
+#from generators.adnd.charactersheet.fluff import religion
 
 def main(x):
 
@@ -15,9 +20,15 @@ def main(x):
     playerclass=classes.roll(race)
     attributes=attribute.roll(race,playerclass)
     profs=proficiencies.roll(race,playerclass,attributes[3])
+#    religion=religion.roll(race)
     title=name+' '+race+' '+playerclass
 
-    with open("/home/torsvik/Documents/Python/Hina/generators/adnd/charactersheet/saved/trash/{}.txt".format(title),"w") as text_file:
+
+    file = "/generators/adnd/charactersheet/saved/trash/{}.txt"
+    pdffile =  "/generators/adnd/charactersheet/saved/trash/{}.pdf"
+    path=os.getcwd()+file
+    pdfpath=os.getcwd()+pdffile
+    with open(path.format(title),"w") as text_file:
 
 #-------------------------------#
 #    Character Sheet Headers    #
@@ -115,8 +126,14 @@ def main(x):
 
     text_file.close()
 
-    x.append("/home/torsvik/Documents/Python/Hina/generators/adnd/charactersheet/saved/trash/{}.txt".format(title))
+    with open(path.format(title),"r") as text_file:
 
-    x.append('\n\n**Character Sheets are automatically saved to a trash folder that will be occasionally cleared, notify me if there is one you want to keep.**\n\n**Right now there is a problem reading new lines between Linux and Windows. Rich text docs and Wordpad wont fix the problem but make the sheets more legible. I will probably switch to a PDF format later.**\n\n**I encourage contributions, it means alot more can get done.**\n\n**Tell me if an error occurs!**')
+        w=text_file.read()
+
+    pdfwriter.write(w,pdfpath.format(title))
+
+    x.append(path.format(title))
+
+    x.append("\n\n**Character Sheets are automatically saved to a trash folder that will be occasionally cleared, notify me if there is one you want to keep.**\n\n**I have switched to a PDF format but until I figure out how to draw with it it will be illegible. I'll keep posting the .txt till its finalized. (still needs to be opened using rich text)**\n\n**I encourage contributions, it means alot more can get done.**\n\n**Tell me if an error occurs!**\n\n**        -Love, Hina**")
 
     return x
