@@ -34,47 +34,42 @@ def main(x):
 #    Character Sheet Headers    #
 #-------------------------------#
 
-        text_file.write("======================================================================================================\n".format(attributes[5]))
-
-        text_file.write("Name: {}\t".format(name))
-        text_file.write("Race: {}\t".format(race))
-        text_file.write("Gender: {}\t".format(gender))
+        text_file.write("Name: {}\n".format(name))
+        text_file.write("Race: {}\n".format(race))
+        text_file.write("Gender: {}\n".format(gender))
         text_file.write("Class: {}\n".format(playerclass))
-        text_file.write("Homeland: {}\t")
-        text_file.write("Religion: {}\t")
-        text_file.write("Motivation: {}\t")
+        text_file.write("Homeland: {}\n")
+        text_file.write("Religion: {}\n")
+        text_file.write("Motivation: {}\n")
         text_file.write("Alignment: {}\n")
-        text_file.write("Personality: {}\t")
+        text_file.write("Personality: {}\n")
         text_file.write("Social Class/Previous Occupation: {}\n")
-        text_file.write("Hair: {}\t")
-        text_file.write("Eyes: {}\t")
-        text_file.write("Appearance: {}\t")
-        text_file.write("Height: {}\t")
-        text_file.write("Weight: {}\n\n")
+        text_file.write("Hair: {}\n")
+        text_file.write("Eyes: {}\n")
+        text_file.write("Appearance: {}\n")
+        text_file.write("Height: {}\n")
+        text_file.write("Weight: {}\n")
 
 #-------------------------------------#
 #    Attributes and Related Values    #
 #-------------------------------------#
 
-        text_file.write("======================================================================================================\n".format(attributes[5]))
-
-
 #Strength
     #Row 1
-        text_file.write("Str: {}\t\t".format(attributes[0]))
-        text_file.write("Hit: {}\t\t")
-        text_file.write("Dmg: {}\t\t")
-        text_file.write("Weight:\t\t")
-        text_file.write("Max: {}\t\t")
-        text_file.write("Open:\t\t")
+        text_file.write("Str: {}\n".format(attributes[0]))
+        text_file.write("Hit: {}\n")
+        text_file.write("Dmg: {}\n")
+        text_file.write("Weight:\n")
+        text_file.write("Max: {}\n")
+        text_file.write("Open:\n")
         text_file.write("B B: {}\n")
 
     #Row 2
-        text_file.write("\t\tProb\t\t")
-        text_file.write("Adj.\t\t")
-        text_file.write("Allowed\t\t")
-        text_file.write("Press\t\t")
-        text_file.write("Doors\t\t")
+        text_file.write("Prob\n")
+        text_file.write("Adj.\n")
+        text_file.write("Allowed\n")
+        text_file.write("Press\n")
+        text_file.write("Doors\n")
         text_file.write("LiftGate\n")
 
 #Dexterity
@@ -90,29 +85,16 @@ def main(x):
         text_file.write("Wis: {}\n".format(attributes[4]))
 
 #Constitution
-        text_file.write("Cha: {}\n\n\n".format(attributes[5]))
+        text_file.write("Cha: {}\n".format(attributes[5]))
 
 #---------#
 # HP & AC #
 #---------#
 
-        text_file.write("======================================================================================================\n".format(attributes[5]))
-
-
-    #Row 1
-        text_file.write("-------------------------------------------------\n")
-
-    #Row 2
-        text_file.write("| Hit Points: {}\t| Current:\t\t|\n")
-
-    #Row 3
-        text_file.write("-------------------------------------------------\n\n")
 
 #---------------------#
 #    Proficiencies    #
 #---------------------#
-
-        text_file.write("======================================================================================================\n".format(attributes[5]))
 
         length=len(profs)
 
