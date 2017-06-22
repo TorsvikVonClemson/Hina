@@ -1,1 +1,8 @@
+This odcument outline the format that the PDF will use to draw the character sheet.
+All relevent information will be loaded into an array that the PDF will use as a reference
+The design of the PDF itsself will need to be experimented with over time.
+Space must be reserved for the potential number of instancs i.e. 20 lines for proficiencies.
+Some list memebers will have multiple variables within them. The pdf will need to know how to seperate them, because of this a character will have to be used as a part seperator. This is the instance for things like weapon statistics.
+
+Currently the seperator will be '!'. This may be changed at any time.
 
