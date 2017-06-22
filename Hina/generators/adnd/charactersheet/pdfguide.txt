@@ -47,8 +47,11 @@ Movement
 ------------------
 Saving Throws
 -----------------
+
 22 Paralye/Poison!Rod Staff Wand!Petrify/Polymorph!Breath!Sepll
 
 -----------------
 Armour Class
 -----------------
+
+23 Base!Flat-footed!Shieldless!
