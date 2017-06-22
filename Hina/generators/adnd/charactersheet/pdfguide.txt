@@ -4,5 +4,51 @@ The design of the PDF itsself will need to be experimented with over time.
 Space must be reserved for the potential number of instancs i.e. 20 lines for proficiencies.
 Some list memebers will have multiple variables within them. The pdf will need to know how to seperate them, because of this a character will have to be used as a part seperator. This is the instance for things like weapon statistics.
 
+The variable may still exist outside of the list for better referencing
+
 Currently the seperator will be '!'. This may be changed at any time.
 
+1 Name
+2 Level
+3 Race
+4 Class
+5 Alignment
+6 Home
+7 Gender
+8 Age
+9 Height
+10 Weight
+11 Hair
+12 Eyes
+13 Apperance
+14 Reaction Adj
+-------------------
+Attributes
+-------------------
+
+15 Str!Hit Prob!Wgt Allowed!Max Press!Open Door!Bend Bars/Lift Gates
+
+16 Dex!Reaction Adj!MIssile Atk Adj!Def Adj
+
+17 Con!HP Adj!System Shock!Res Survival!Poison Save!Regen
+
+18 Int!No Of Languages!Spell Level!Learn Spell!Spells/Level!Spell Immunity
+
+19 Wis!Magic Def Adj!Bonus Spells!Spell Failure!Spell Immunity
+
+20 Chr!Max No of Henchmen!Loyalty Base!Reaction Adj
+
+---------------------
+Movement
+---------------------
+
+21 Base!LightSpd!LightAC!LightAdj!LightWeight!ModerateSpd!ModerateAC!ModerateAdj!ModerateWeight!HeavyAC!HeavyAdj!HeavySpd!HeavyWeight!EncAC!EncAdj!EncSpd!EncWeight!JogSpd!JogAC!JogAdj!RunSpd!RunAC!RunAdj!SprintSpd!SprintAC!SprintAdj!ChargeSpd!ChargeAC!ChargeAdj!
+
+------------------
+Saving Throws
+-----------------
+22 Paralye/Poison!Rod Staff Wand!Petrify/Polymorph!Breath!Sepll
+
+-----------------
+Armour Class
+-----------------
