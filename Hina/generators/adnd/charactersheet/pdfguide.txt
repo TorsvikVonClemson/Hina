@@ -8,11 +8,12 @@ The variable may still exist outside of the list for better referencing
 
 Currently the seperator will be '!'. This may be changed at any time.
 
-1 Name
-2 Level
-3 Race
-4 Class
-5 Alignment
+0 Name
+1 Level
+2 Race
+3 Class
+4 Alignment
+5 Religion
 6 Home
 7 Gender
 8 Age
@@ -64,12 +65,12 @@ Armour Class, Health and Thaco
 Weapons
 -------------------
 
-25 Weapon1!Rate!Atk/Dmg Adj!DMG M/L!Range!Type!Speed
-26 ""
+26 Weapon1!Rate!Atk/Dmg Adj!DMG M/L!Range!Type!Speed
 27 ""
 28 ""
 29 ""
 30 ""
+31 ""
 
 ------------
 Ammunition
@@ -79,28 +80,29 @@ Ammunition
 Proficiencies
 --------------
 
-31 Prof!Atrib+-
+32 Prof!Atrib+-
 .
 .
 .
-60
+61
 
 -----------------
 Special Abilities
 ------------------
 
-61
+62
 .
 .
 .
-90
+91
 
 --------------------------------
 Addendums/Things thought up later
 --------------------------------
 
-91 Personality
-91 Macbre
+92 Personality
+93 Macbre
+94 Social Class/Previous Occupation
 
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 Begin Page 2

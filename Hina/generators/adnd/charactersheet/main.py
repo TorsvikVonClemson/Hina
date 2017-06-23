@@ -13,7 +13,7 @@ from generators.adnd.charactersheet.classes import proficiencies
 def main(x):
 
     x=[]
-    
+
     race=races.roll()
     gender=genders.roll(race)
     name=names.roll(race,gender)
@@ -103,16 +103,40 @@ def main(x):
               text_file.write("\n")
               length -= 1
 
-    
-
-
     text_file.close()
 
-    with open(path.format(title),"r") as text_file:
+#-------------#
+# PDF Writing #
+#-------------#
 
-        w=text_file.read()
+    pdfarray=[]
 
-    pdfwriter.write(name,pdfpath.format(title))
+#-----Header-----#
+
+    pdfarray.append(name)
+    pdfarray.append("1") #TEMP SPACE FOR LEVEL
+    pdfarray.append(race)
+    pdfarray.append(playerclass)
+    pdfarray.append("TN")#TEMP SPACE FOR ALIGNMENT
+    pdfarray.append("JESUS")#TEMP SPACE FOR RELIGION
+    pdfarray.append("HOME")#TEMP SPACE FOR HOME
+    pdfarray.append(gender)
+    pdfarray.append("69")#TEMP SPACE FOR AGE
+    pdfarray.append("4'20")#TEMP SPACE FOR HEIGHT
+    pdfarray.append("420")#TEMP SPACE FO WEIGHT
+    pdfarray.append("BALD")#TEMP SPACE FOR HAIR
+    pdfarray.append("NONE")#TEMP SPACE FOR EYES
+    pdfarray.append("UGLY")#TEMP SPACE FOR APPEARANCE
+    pdfarray.append("0")#TEMP SPACE FOR REACTION ADJ
+
+
+#-----Attributes & Saves-----#
+
+    pdfwriter.write(pdfarray,pdfpath.format(title))
+
+#--------#
+# Return #
+#--------#
 
     x.append(path.format(title))
 
