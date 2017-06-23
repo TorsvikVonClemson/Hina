@@ -51,7 +51,46 @@ Saving Throws
 22 Paralye/Poison!Rod Staff Wand!Petrify/Polymorph!Breath!Sepll
 
 -----------------
-Armour Class
+Armour Class, Health and Thaco
 -----------------
 
 23 Base!Flat-footed!Shieldless!
+
+24 Max HP
+
+25 THAC0
+
+-----------------
+Weapons
+-------------------
+
+25 Weapon1!Rate!Atk/Dmg Adj!DMG M/L!Range!Type!Speed
+26 ""
+27 ""
+28 ""
+29 ""
+30 ""
+
+------------
+Ammunition
+------------
+
+--------------
+Proficiencies
+--------------
+
+31 Prof!Atrib+-
+.
+.
+.
+60
+
+-----------------
+Special Abilities
+------------------
+
+61
+.
+.
+.
+90
