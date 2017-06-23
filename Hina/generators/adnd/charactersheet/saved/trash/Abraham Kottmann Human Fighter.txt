@@ -1,5 +1,5 @@
-Name: TempName
-Race: Dwarf
+Name: Abraham Kottmann
+Race: Human
 Gender: Male
 Class: Fighter
 Homeland: {}
@@ -13,7 +13,7 @@ Eyes: {}
 Appearance: {}
 Height: {}
 Weight: {}
-Str: 9
+Str: 15
 Hit: {}
 Dmg: {}
 Weight:
@@ -26,17 +26,13 @@ Allowed
 Press
 Doors
 LiftGate
-Dex: 13
-Con: 18
-Int: 15
-Wis: 14
-Cha: 10
-Fishing					Wis	-1
-Tracking
-Set Snares
-
-Healdry					Int	0
-Tailor
-Set Snares
-Language (Dwarven)
+Dex: 10
+Con: 9
+Int: 7
+Wis: 9
+Cha: 4
+Carpentry				Str	0
+Animal Training				Wis	0
+Blacksmithing				Str	0
+Riding Land (Race Placeholder)
 Language (Faustic)

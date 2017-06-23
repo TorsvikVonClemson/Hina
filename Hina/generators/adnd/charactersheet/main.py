@@ -112,7 +112,7 @@ def main(x):
 
         w=text_file.read()
 
-    pdfwriter.write(w,pdfpath.format(title))
+    pdfwriter.write(name,pdfpath.format(title))
 
     x.append(path.format(title))
 

@@ -1,7 +1,7 @@
 Name: TempName
-Race: Dwarf
+Race: Halfling
 Gender: Male
-Class: Fighter
+Class: Rogue
 Homeland: {}
 Religion: {}
 Motivation: {}
@@ -13,7 +13,7 @@ Eyes: {}
 Appearance: {}
 Height: {}
 Weight: {}
-Str: 9
+Str: 11
 Hit: {}
 Dmg: {}
 Weight:
@@ -26,17 +26,15 @@ Allowed
 Press
 Doors
 LiftGate
-Dex: 13
-Con: 18
-Int: 15
-Wis: 14
-Cha: 10
-Fishing					Wis	-1
-Tracking
-Set Snares
-
-Healdry					Int	0
-Tailor
-Set Snares
-Language (Dwarven)
+Dex: 11
+Con: 13
+Int: 10
+Wis: 10
+Cha: 12
+Gem Cutting
+Swimming
+Blacksmithing				Str	0
+Weaving
+Tumbling
+Language (Thieves' Cant)
 Language (Faustic)

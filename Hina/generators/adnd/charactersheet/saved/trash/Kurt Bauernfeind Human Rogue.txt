@@ -1,7 +1,7 @@
-Name: TempName
-Race: Dwarf
+Name: Kurt Bauernfeind
+Race: Human
 Gender: Male
-Class: Fighter
+Class: Rogue
 Homeland: {}
 Religion: {}
 Motivation: {}
@@ -13,7 +13,7 @@ Eyes: {}
 Appearance: {}
 Height: {}
 Weight: {}
-Str: 9
+Str: 10
 Hit: {}
 Dmg: {}
 Weight:
@@ -26,17 +26,17 @@ Allowed
 Press
 Doors
 LiftGate
-Dex: 13
-Con: 18
+Dex: 18
+Con: 12
 Int: 15
-Wis: 14
-Cha: 10
-Fishing					Wis	-1
-Tracking
+Wis: 15
+Cha: 9
+Cobbling				Dex	0
+Tumbling
+Language ({})				Int	0
+Singing
 Set Snares
-
-Healdry					Int	0
-Tailor
-Set Snares
-Language (Dwarven)
+Tumbling
+Reading Lips
+Language (Thieves' Cant)
 Language (Faustic)
