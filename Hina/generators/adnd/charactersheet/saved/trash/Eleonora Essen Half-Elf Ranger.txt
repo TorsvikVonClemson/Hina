@@ -1,7 +1,7 @@
-Name: Leni Theismann
+Name: Eleonora Essen
 Race: Half-Elf
 Gender: Female
-Class: Bard
+Class: Ranger
 Homeland: {}
 Religion: {}
 Motivation: {}
@@ -13,26 +13,18 @@ Eyes: {}
 Appearance: {}
 Height: {}
 Weight: {}
-Str: 12
-Hit: {}
-Dmg: {}
-Weight:
-Max: {}
-Open:
-B B: {}
-Prob
-Adj.
-Allowed
-Press
-Doors
-LiftGate
-Dex: 14
+Str: 17
+Hit Adj: 1
+Dmg Adj: 1
+Weight Allowed:85
+Max Press: 220
+Open Door:10
+Bend Bar Lift Gate: 13%
+Dex: 13
 Con: 15
-Int: 14
-Wis: 12
-Cha: 15
-Tailor
-Weaving
-Singing
+Int: 10
+Wis: 15
+Cha: 13
 Cooking					Int	0
+Rope Use
 Language (Faustic)

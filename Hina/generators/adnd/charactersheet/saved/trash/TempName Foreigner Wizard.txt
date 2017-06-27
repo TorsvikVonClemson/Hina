@@ -1,7 +1,7 @@
 Name: TempName
-Race: Halfling
+Race: Foreigner
 Gender: Male
-Class: Rogue
+Class: Wizard
 Homeland: {}
 Religion: {}
 Motivation: {}
@@ -13,23 +13,23 @@ Eyes: {}
 Appearance: {}
 Height: {}
 Weight: {}
-Str: 11
+Str: 13
 Hit Adj: 0
 Dmg Adj: 0
-Weight Allowed:40
-Max Press: 115
-Open Door:6
-Bend Bar Lift Gate: 2%
-Dex: 16
-Con: 15
+Weight Allowed:45
+Max Press: 140
+Open Door:7
+Bend Bar Lift Gate: 4%
+Dex: 13
+Con: 10
 Int: 13
-Wis: 15
+Wis: 16
 Cha: 13
-Brewing					Int	0
-Brewing					Int	0
-Ancient History
+Direction Sense				Wis	+1
 Rope Use
-Tightrope Walking
-Blacksmithing				Str	0
-Language (Thieves' Cant)
+
+Weaving
+Language ({})				Int	0
+Rope Use
+Pottery
 Language (Faustic)

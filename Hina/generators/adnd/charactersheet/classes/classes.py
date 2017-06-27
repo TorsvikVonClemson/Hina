@@ -138,7 +138,7 @@ def roll(race):
             x='Cleric'
 
     elif race == 'Oni':
-        x='Fighter/Sorcerer'
+        x='Fighter-Sorcerer'
 
     elif race == 'Elven Spy':
         if classroll >=1 and classroll <=40:

@@ -49,7 +49,7 @@ def roll(race,playerclass):
             p[0]=p[0]-1
 
         if playerclass=='Fighter' and p[0]==18:
-             p[0]=p[0]+(random.randint(1,100)/100)
+             p[0]=p[0]+(random.randint(0,99)/100)
 
 #--------------------#
 # Check for validity #

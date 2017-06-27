@@ -7,6 +7,10 @@ from generators.adnd.charactersheet.race import genders
 from generators.adnd.charactersheet.race import names
 from generators.adnd.charactersheet.classes import classes
 from generators.adnd.charactersheet.classes import attribute
+from generators.adnd.charactersheet.classes import strength
+from generators.adnd.charactersheet.classes import dexterity
+from generators.adnd.charactersheet.classes import constitution
+from generators.adnd.charactersheet.classes import intelligence
 from generators.adnd.charactersheet.classes import proficiencies
 #from generators.adnd.charactersheet.fluff import religion
 
@@ -19,6 +23,10 @@ def main(x):
     name=names.roll(race,gender)
     playerclass=classes.roll(race)
     attributes=attribute.roll(race,playerclass)
+    stronk=strength.roll(attributes[0])
+    dex=dexterity.roll(attributes[1])
+    con=constitution.roll(attributes[2])
+    smarts=intelligence.roll(attributes[3])
     profs=proficiencies.roll(race,playerclass,attributes[3])
 #    religion=religion.roll(race)
     title=name+' '+race+' '+playerclass
@@ -55,22 +63,14 @@ def main(x):
 #-------------------------------------#
 
 #Strength
-    #Row 1
-        text_file.write("Str: {}\n".format(attributes[0]))
-        text_file.write("Hit: {}\n")
-        text_file.write("Dmg: {}\n")
-        text_file.write("Weight:\n")
-        text_file.write("Max: {}\n")
-        text_file.write("Open:\n")
-        text_file.write("B B: {}\n")
 
-    #Row 2
-        text_file.write("Prob\n")
-        text_file.write("Adj.\n")
-        text_file.write("Allowed\n")
-        text_file.write("Press\n")
-        text_file.write("Doors\n")
-        text_file.write("LiftGate\n")
+        text_file.write("Str: {}\n".format(attributes[0]))
+        text_file.write("Hit Adj: {}\n".format(stronk[0]))
+        text_file.write("Dmg Adj: {}\n".format(stronk[1]))
+        text_file.write("Weight Allowed:{}\n".format(stronk[2]))
+        text_file.write("Max Press: {}\n".format(stronk[3]))
+        text_file.write("Open Door:{}\n".format(stronk[4]))
+        text_file.write("Bend Bar Lift Gate: {}\n".format(stronk[5]))
 
 #Dexterity
         text_file.write("Dex: {}\n".format(attributes[1]))
@@ -130,7 +130,16 @@ def main(x):
     pdfarray.append("0")#TEMP SPACE FOR REACTION ADJ
 
 
-#-----Attributes & Saves-----#
+#-----Attributes-----#
+
+    pdfarray.append(attributes[0])
+    pdfarray=pdfarray+stronk
+    pdfarray.append(attributes[1])
+    pdfarray=pdfarray+dex
+    pdfarray.append(attributes[2])
+    pdfarray=pdfarray+con
+    pdfarray.append(attributes[3])
+    pdfarray=pdfarray+smarts
 
     pdfwriter.write(pdfarray,pdfpath.format(title))
 
@@ -138,8 +147,8 @@ def main(x):
 # Return #
 #--------#
 
-    x.append(path.format(title))
+    x.append(pdfpath.format(title))
 
-    x.append("\n\n**Character Sheets are automatically saved to a trash folder that will be occasionally cleared, notify me if there is one you want to keep.**\n\n**I have switched to a PDF format but until I figure out how to draw with it it will be illegible. I'll keep posting the .txt till its finalized. (still needs to be opened using rich text)**\n\n**I encourage contributions, it means alot more can get done.**\n\n**Tell me if an error occurs!**\n\n**        -Love, Hina**")
+    x.append("\n\n**Character Sheets are automatically saved to a trash folder that will be occasionally cleared, notify me if there is one you want to keep.**\n\n**Right now 18/00 Strength doesn't work proper so untill it gets fixed so if a Human Fighter has 18 Strength refer to the stats for 18/00 in the book.**\n\n**I encourage contributions, it means alot more can get done.**\n\n**Tell me if an error occurs!**\n\n**        -Love, Hina**")
 
     return x
