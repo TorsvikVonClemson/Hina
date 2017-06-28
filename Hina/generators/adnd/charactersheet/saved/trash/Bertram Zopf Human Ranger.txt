@@ -1,0 +1,32 @@
+Name: Bertram Zopf
+Race: Human
+Gender: Male
+Class: Ranger
+Homeland: {}
+Religion: {}
+Motivation: {}
+Alignment: {}
+Personality: {}
+Social Class/Previous Occupation: {}
+Hair: {}
+Eyes: {}
+Appearance: {}
+Height: {}
+Weight: {}
+Str: 16
+Hit Adj: 0
+Dmg Adj: 1
+Weight Allowed:70
+Max Press: 195
+Open Door:9
+Bend Bar Lift Gate: 10%
+Dex: 17
+Con: 18
+Int: 14
+Wis: 15
+Cha: 18
+Agriculture				Int	0
+Pottery
+
+Blacksmithing				Str	0
+Language (Faustic)

@@ -178,7 +178,6 @@ def write(array,fp):
     #-Intelligence-#
 
     c.rect(-.9*inch,8.5*inch,8*inch,.3*inch)
-    c.line(-.1*inch,8.5*inch,-.1*inch,9.7*inch)
     c.drawString(-.8*inch,8.6*inch,"INT |")
     c.drawString(-.4*inch,8.6*inch,str(array[32]))
     c.drawString(0*inch,8.6*inch,"Languages:")
@@ -191,6 +190,36 @@ def write(array,fp):
     c.drawString(5*inch,8.6*inch,array[36])
     c.drawString(5.5*inch,8.6*inch,"Illusion Immune:")
     c.drawString(6.6*inch,8.6*inch,array[37])
+
+    #-Wisdom-#
+
+    c.rect(-.9*inch,8.2*inch,8*inch,.3*inch)
+    c.line(-.1*inch,8.2*inch,-.1*inch,9.7*inch)
+    c.drawString(-.8*inch,8.3*inch,"WIS |")
+    c.drawString(-.4*inch,8.3*inch,str(array[33]))
+    c.drawString(0*inch,8.3*inch,"Magic Def. Adj.:")
+    c.drawString(1*inch,8.3*inch,array[34])
+    c.drawString(2*inch,8.3*inch,"Bonus Spells:")
+    c.drawString(3*inch,8.3*inch,array[35])
+    c.drawString(4*inch,8.3*inch,"Spell Fail:")
+    c.drawString(5*inch,8.3*inch,array[36])
+    c.drawString(6*inch,8.3*inch,"Spell Immune:")
+    c.drawString(7*inch,8.3*inch,array[37])
+
+    #-Charisma-#
+
+    c.rect(-.9*inch,7.9*inch,8*inch,.3*inch)
+    c.line(-.1*inch,7.9*inch,-.1*inch,9.7*inch)
+    c.drawString(-.8*inch,8*inch,"CHA |")
+    c.drawString(-.4*inch,8*inch,str(array[22]))
+    c.drawString(0*inch,8*inch,"Max Hench:")
+    c.drawString(1*inch,8*inch,array[23])
+    c.drawString(3*inch,8*inch,"Loyalty Base:")
+    c.drawString(4.5*inch,8*inch,array[24])
+    c.drawString(5*inch,8*inch,"Reaction Adj.:")
+    c.drawString(6*inch,8*inch,array[25])
+
+
 
     
     

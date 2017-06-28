@@ -5,12 +5,15 @@ from generators.adnd.charactersheet import pdfwriter
 from generators.adnd.charactersheet.race import races
 from generators.adnd.charactersheet.race import genders
 from generators.adnd.charactersheet.race import names
+from generators.adnd.charactersheet.race import religion
 from generators.adnd.charactersheet.classes import classes
 from generators.adnd.charactersheet.classes import attribute
 from generators.adnd.charactersheet.classes import strength
 from generators.adnd.charactersheet.classes import dexterity
 from generators.adnd.charactersheet.classes import constitution
 from generators.adnd.charactersheet.classes import intelligence
+from generators.adnd.charactersheet.classes import wisdom
+from generators.adnd.charactersheet.classes import charisma
 from generators.adnd.charactersheet.classes import proficiencies
 #from generators.adnd.charactersheet.fluff import religion
 
@@ -18,7 +21,9 @@ def main(x):
 
     x=[]
 
-    race=races.roll()
+    race=""			#
+    while race!="Human":	#Temporary Code to force Race
+        race=races.roll()	#
     gender=genders.roll(race)
     name=names.roll(race,gender)
     playerclass=classes.roll(race)
@@ -27,7 +32,10 @@ def main(x):
     dex=dexterity.roll(attributes[1])
     con=constitution.roll(attributes[2])
     smarts=intelligence.roll(attributes[3])
+    wis=wisdom.roll(attributes[4])
+    cha=charisma.roll(attributes[5])
     profs=proficiencies.roll(race,playerclass,attributes[3])
+    god=religion.roll(race)
 #    religion=religion.roll(race)
     title=name+' '+race+' '+playerclass
 
@@ -118,7 +126,7 @@ def main(x):
     pdfarray.append(race)
     pdfarray.append(playerclass)
     pdfarray.append("TN")#TEMP SPACE FOR ALIGNMENT
-    pdfarray.append("JESUS")#TEMP SPACE FOR RELIGION
+    pdfarray.append(god)
     pdfarray.append("HOME")#TEMP SPACE FOR HOME
     pdfarray.append(gender)
     pdfarray.append("69")#TEMP SPACE FOR AGE
@@ -140,6 +148,10 @@ def main(x):
     pdfarray=pdfarray+con
     pdfarray.append(attributes[3])
     pdfarray=pdfarray+smarts
+    pdfarray.append(attributes[4])
+    pdfarray=pdfarray+wis
+    pdfarray.append(attributes[5])
+    pdfarray=pdfarray+cha
 
     pdfwriter.write(pdfarray,pdfpath.format(title))
 
@@ -149,6 +161,6 @@ def main(x):
 
     x.append(pdfpath.format(title))
 
-    x.append("\n\n**Character Sheets are automatically saved to a trash folder that will be occasionally cleared, notify me if there is one you want to keep.**\n\n**Right now 18/00 Strength doesn't work proper so untill it gets fixed so if a Human Fighter has 18 Strength refer to the stats for 18/00 in the book.**\n\n**I encourage contributions, it means alot more can get done.**\n\n**Tell me if an error occurs!**\n\n**        -Love, Hina**")
+    x.append("\n\n**Character Sheets are automatically saved to a trash folder that will be occasionally cleared, notify me if there is one you want to keep.**\n\n**The only race that can be rolled right now is 'Human' while tests are being conducted**\n\n**Right now 18/00 Strength doesn't work proper so untill it gets fixed so if a Human Fighter has 18 Strength refer to the stats for 18/00 in the book.**\n\n**I encourage contributions, it means alot more can get done.**\n\n**Tell me if an error occurs!**\n\n**        -Love, Hina**")
 
     return x

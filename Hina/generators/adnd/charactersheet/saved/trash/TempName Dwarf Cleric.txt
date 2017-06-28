@@ -1,0 +1,36 @@
+Name: TempName
+Race: Dwarf
+Gender: Male
+Class: Cleric
+Homeland: {}
+Religion: {}
+Motivation: {}
+Alignment: {}
+Personality: {}
+Social Class/Previous Occupation: {}
+Hair: {}
+Eyes: {}
+Appearance: {}
+Height: {}
+Weight: {}
+Str: 8
+Hit Adj: 0
+Dmg Adj: 0
+Weight Allowed:35
+Max Press: 90
+Open Door:5
+Bend Bar Lift Gate: 1%
+Dex: 11
+Con: 14
+Int: 12
+Wis: 14
+Cha: 12
+Language ({})				Int	0
+(Ancient Language)
+Navigation
+Dancing					Dex	0
+Singing
+Leatherworking
+Dancing					Dex	0
+Language (Dwarven)
+Language (Faustic)
