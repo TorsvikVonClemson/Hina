@@ -41,6 +41,19 @@ def roll(playerclass,god)
                 wp="Parrying Dagger"
             elif roll==15:
                 wp="Dart"                                 
+            elif roll==8:
+                wp="Chain"                                 
+                        
+                                
+                                
+                                
+                                
+                                
+                                
+                                
+                                
+                                
+                                
                                 
                                 
                                 
