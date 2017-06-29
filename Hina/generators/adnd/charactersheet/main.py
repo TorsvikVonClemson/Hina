@@ -14,7 +14,9 @@ from generators.adnd.charactersheet.classes import constitution
 from generators.adnd.charactersheet.classes import intelligence
 from generators.adnd.charactersheet.classes import wisdom
 from generators.adnd.charactersheet.classes import charisma
+from generators.adnd.charactersheet.classes import wp
 from generators.adnd.charactersheet.classes import proficiencies
+
 #from generators.adnd.charactersheet.fluff import religion
 
 def main(x):
@@ -34,8 +36,9 @@ def main(x):
     smarts=intelligence.roll(attributes[3])
     wis=wisdom.roll(attributes[4])
     cha=charisma.roll(attributes[5])
-    profs=proficiencies.roll(race,playerclass,attributes[3])
     god=religion.roll(race)
+    wplist=wp.roll(playerclass,god)
+    profs=proficiencies.roll(race,playerclass,attributes[3])
 #    religion=religion.roll(race)
     title=name+' '+race+' '+playerclass
 
@@ -95,21 +98,6 @@ def main(x):
 #Constitution
         text_file.write("Cha: {}\n".format(attributes[5]))
 
-#---------#
-# HP & AC #
-#---------#
-
-
-#---------------------#
-#    Proficiencies    #
-#---------------------#
-
-        length=len(profs)
-
-        while length>0:
-              text_file.write(profs[length-1])
-              text_file.write("\n")
-              length -= 1
 
     text_file.close()
 
@@ -152,6 +140,12 @@ def main(x):
     pdfarray=pdfarray+wis
     pdfarray.append(attributes[5])
     pdfarray=pdfarray+cha
+
+#-----Proficiencies-----#
+
+    pdfarray=pdfarray+wplist+profs
+    while len(pdfarray)<67:
+        pdfarray.append("")
 
     pdfwriter.write(pdfarray,pdfpath.format(title))
 

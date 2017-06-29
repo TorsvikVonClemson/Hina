@@ -196,29 +196,87 @@ def write(array,fp):
     c.rect(-.9*inch,8.2*inch,8*inch,.3*inch)
     c.line(-.1*inch,8.2*inch,-.1*inch,9.7*inch)
     c.drawString(-.8*inch,8.3*inch,"WIS |")
-    c.drawString(-.4*inch,8.3*inch,str(array[33]))
+    c.drawString(-.4*inch,8.3*inch,str(array[38]))
     c.drawString(0*inch,8.3*inch,"Magic Def. Adj.:")
-    c.drawString(1*inch,8.3*inch,array[34])
+    c.drawString(1*inch,8.3*inch,array[39])
     c.drawString(2*inch,8.3*inch,"Bonus Spells:")
-    c.drawString(3*inch,8.3*inch,array[35])
+    c.drawString(3*inch,8.3*inch,array[40])
     c.drawString(4*inch,8.3*inch,"Spell Fail:")
-    c.drawString(5*inch,8.3*inch,array[36])
+    c.drawString(5*inch,8.3*inch,array[41])
     c.drawString(6*inch,8.3*inch,"Spell Immune:")
-    c.drawString(7*inch,8.3*inch,array[37])
+    c.drawString(7*inch,8.3*inch,array[42])
 
     #-Charisma-#
 
     c.rect(-.9*inch,7.9*inch,8*inch,.3*inch)
     c.line(-.1*inch,7.9*inch,-.1*inch,9.7*inch)
     c.drawString(-.8*inch,8*inch,"CHA |")
-    c.drawString(-.4*inch,8*inch,str(array[22]))
+    c.drawString(-.4*inch,8*inch,str(array[43]))
     c.drawString(0*inch,8*inch,"Max Hench:")
-    c.drawString(1*inch,8*inch,array[23])
+    c.drawString(1*inch,8*inch,array[44])
     c.drawString(3*inch,8*inch,"Loyalty Base:")
-    c.drawString(4.5*inch,8*inch,array[24])
+    c.drawString(4.5*inch,8*inch,array[45])
     c.drawString(5*inch,8*inch,"Reaction Adj.:")
-    c.drawString(6*inch,8*inch,array[25])
+    c.drawString(6*inch,8*inch,array[46])
 
+#---------------#
+# End Section 2 #
+#---------------#
+
+#----------------#
+# Begin Prof Box #
+#----------------#
+
+    c.drawString(1*inch,2.65*inch,"Proficiencies")
+    c.rect(-.9*inch,0*inch,4.6*inch,2.85*inch)
+
+#---Column 1---#
+
+    c.drawString(-.8*inch,2.5*inch,array[47])
+    c.drawString(-.8*inch,2.25*inch,array[48])
+    c.drawString(-.8*inch,2*inch,array[49])
+    c.drawString(-.8*inch,1.75*inch,array[50])
+    c.drawString(-.8*inch,1.5*inch,array[51])
+    c.drawString(-.8*inch,1.25*inch,array[52])
+    c.drawString(-.8*inch,1*inch,array[53])
+    c.drawString(-.8*inch,.75*inch,array[54])
+    c.drawString(-.8*inch,.5*inch,array[55])
+    c.drawString(-.8*inch,.25*inch,array[56])
+
+    c.line(-.8*inch,2.45*inch,1.2*inch,2.45*inch)
+    c.line(-.8*inch,2.2*inch,1.2*inch,2.2*inch)
+    c.line(-.8*inch,1.95*inch,1.2*inch,1.95*inch)
+    c.line(-.8*inch,1.7*inch,1.2*inch,1.7*inch)
+    c.line(-.8*inch,1.45*inch,1.2*inch,1.45*inch)
+    c.line(-.8*inch,1.2*inch,1.2*inch,1.2*inch)
+    c.line(-.8*inch,.95*inch,1.2*inch,.95*inch)
+    c.line(-.8*inch,.7*inch,1.2*inch,.7*inch)
+    c.line(-.8*inch,.45*inch,1.2*inch,.45*inch)
+    c.line(-.8*inch,.2*inch,1.2*inch,.2*inch)
+
+#---Column 2---#
+
+    c.drawString(1.4*inch,2.5*inch,array[57])
+    c.drawString(1.4*inch,2.25*inch,array[58])
+    c.drawString(1.4*inch,2*inch,array[59])
+    c.drawString(1.4*inch,1.75*inch,array[60])
+    c.drawString(1.4*inch,1.5*inch,array[61])
+    c.drawString(1.4*inch,1.25*inch,array[62])
+    c.drawString(1.4*inch,1*inch,array[63])
+    c.drawString(1.4*inch,.75*inch,array[64])
+    c.drawString(1.4*inch,.5*inch,array[65])
+    c.drawString(1.4*inch,.25*inch,array[66])
+
+    c.line(1.4*inch,2.45*inch,3.4*inch,2.45*inch)
+    c.line(1.4*inch,2.2*inch,3.4*inch,2.2*inch)
+    c.line(1.4*inch,1.95*inch,3.4*inch,1.95*inch)
+    c.line(1.4*inch,1.7*inch,3.4*inch,1.7*inch)
+    c.line(1.4*inch,1.45*inch,3.4*inch,1.45*inch)
+    c.line(1.4*inch,1.2*inch,3.4*inch,1.2*inch)
+    c.line(1.4*inch,.95*inch,3.4*inch,.95*inch)
+    c.line(1.4*inch,.7*inch,3.4*inch,.7*inch)
+    c.line(1.4*inch,.45*inch,3.4*inch,.45*inch)
+    c.line(1.4*inch,.2*inch,3.4*inch,.2*inch)
 
 
     

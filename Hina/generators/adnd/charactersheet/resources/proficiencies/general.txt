@@ -1,29 +1,28 @@
-Agriculture				Int	0
-Animal Handling				Wis	-1
-Animal Training				Wis	0
-Artistic Ability {} 	Wis	0
-Blacksmithing				Str	0
-Brewing					Int	0
-Carpentry				Str	0
-Cobbling				Dex	0
-Cooking					Int	0
-Dancing					Dex	0
-Direction Sense				Wis	+1
-Etiquette				Cha	0
-Fire-Building				Wis	-1
-Fishing					Wis	-1
-Healdry					Int	0
-Language ({})				Int	0
-Leatherworking
-Mining
-Pottery
-Riding Land (Race Placeholder)
-Rope Use
-Seamanship
-Tailor
-Singing
-Stonemasonry
-Swimming
-Weather Sense
-Weaving
-
+Agriculture             Int
+Animal Handling         Wis-1
+Animal Training         Wis
+Artistic Ability {}     Wis
+Blacksmithing           Str
+Brewing                 Int
+Carpentry               Str
+Cobbling                Dex
+Cooking                 Int
+Dancing                 Dex
+Direction Sense         Wis+1
+Etiquette               Cha
+Fire-Building           Wis-1
+Fishing                 Wis-1
+Healdry                 Int
+Language ({})           Int
+Leatherworking          Int
+Mining                  Wis-3
+Pottery                 Dex-2
+Riding Land ({Race})    Wis+3
+Rope Use                Dex
+Seamanship              Dex+1
+Tailor                  Dex-1
+Singing                 Cha
+Stonemasonry            Str-2
+Swimming                Str
+Weather Sense           Wis-1
+Weaving                 Int-1

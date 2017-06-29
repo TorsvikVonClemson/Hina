@@ -1,13 +1,12 @@
-Ancient History
-Astrology
-Engineering
-Healing
-Herbalism
-(Ancient Language)
-Local History
-Musical Instument
-Navigation
-Literacy
-Religion
-Spellcraft
-
+Ancient History         Int-1
+Astrology               Int
+Engineering             Int-3
+Healing                 Wis-2
+Herbalism               Int-2
+Language{Ancient}       Int
+Local History           Cha
+Musical Instument       Dex-1
+Navigation              Int-2
+Literacy                Int+1
+Religion                Wis
+Spellcraft              Int-2
