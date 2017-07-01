@@ -278,6 +278,10 @@ def write(array,fp):
     c.line(1.4*inch,.45*inch,3.4*inch,.45*inch)
     c.line(1.4*inch,.2*inch,3.4*inch,.2*inch)
 
+#---Temp---#
+
+    c.drawString(5*inch,0*inch,str(array[67]))
+
 
     
     

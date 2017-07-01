@@ -15,6 +15,7 @@ from generators.adnd.charactersheet.classes import intelligence
 from generators.adnd.charactersheet.classes import wisdom
 from generators.adnd.charactersheet.classes import charisma
 from generators.adnd.charactersheet.classes import wp
+from generators.adnd.charactersheet.classes import dosh
 from generators.adnd.charactersheet.classes import proficiencies
 
 #from generators.adnd.charactersheet.fluff import religion
@@ -36,10 +37,11 @@ def main(x):
     smarts=intelligence.roll(attributes[3])
     wis=wisdom.roll(attributes[4])
     cha=charisma.roll(attributes[5])
+    finaldosh=dosh.roll(playerclass)
     god=religion.roll(race)
     wplist=wp.roll(playerclass,god)
+#    wppurchase=wp.roll(dosh,wplist)
     profs=proficiencies.roll(race,playerclass,attributes[3])
-#    religion=religion.roll(race)
     title=name+' '+race+' '+playerclass
 
 
@@ -146,6 +148,10 @@ def main(x):
     pdfarray=pdfarray+wplist+profs
     while len(pdfarray)<67:
         pdfarray.append("")
+
+#----Inventory---#
+
+    pdfarray.append(finaldosh)
 
     pdfwriter.write(pdfarray,pdfpath.format(title))
 

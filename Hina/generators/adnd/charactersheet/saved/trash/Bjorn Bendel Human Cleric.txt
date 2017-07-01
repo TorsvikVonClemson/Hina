@@ -1,0 +1,27 @@
+Name: Bjorn Bendel
+Race: Human
+Gender: Male
+Class: Cleric
+Homeland: {}
+Religion: {}
+Motivation: {}
+Alignment: {}
+Personality: {}
+Social Class/Previous Occupation: {}
+Hair: {}
+Eyes: {}
+Appearance: {}
+Height: {}
+Weight: {}
+Str: 13
+Hit Adj: 0
+Dmg Adj: 0
+Weight Allowed:45
+Max Press: 140
+Open Door:7
+Bend Bar Lift Gate: 4%
+Dex: 18
+Con: 10
+Int: 10
+Wis: 11
+Cha: 15

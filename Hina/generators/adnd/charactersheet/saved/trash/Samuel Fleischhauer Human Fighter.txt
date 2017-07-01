@@ -1,0 +1,27 @@
+Name: Samuel Fleischhauer
+Race: Human
+Gender: Male
+Class: Fighter
+Homeland: {}
+Religion: {}
+Motivation: {}
+Alignment: {}
+Personality: {}
+Social Class/Previous Occupation: {}
+Hair: {}
+Eyes: {}
+Appearance: {}
+Height: {}
+Weight: {}
+Str: 9
+Hit Adj: 0
+Dmg Adj: 0
+Weight Allowed:35
+Max Press: 90
+Open Door:5
+Bend Bar Lift Gate: 1%
+Dex: 10
+Con: 15
+Int: 13
+Wis: 14
+Cha: 17
