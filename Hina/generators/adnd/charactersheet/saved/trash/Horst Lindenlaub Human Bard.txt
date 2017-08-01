@@ -1,7 +1,7 @@
-Name: Erhard Feiner
+Name: Horst Lindenlaub
 Race: Human
 Gender: Male
-Class: Cleric
+Class: Bard
 Homeland: {}
 Religion: {}
 Motivation: {}
@@ -13,15 +13,16 @@ Eyes: {}
 Appearance: {}
 Height: {}
 Weight: {}
-Str: 6
-Hit Adj: -1
+Str: 9
+Hit Adj: 0
 Dmg Adj: 0
-Weight Allowed:20
-Max Press: 55
-Open Door:4
-Bend Bar Lift Gate: 0%
+Weight Allowed:35
+Max Press: 90
+Open Door:5
+Bend Bar Lift Gate: 1%
 Dex: 13
 Con: 18
-Int: 14
+Int: 13
 Wis: 9
-Cha: 14
+Cha: 16
+4

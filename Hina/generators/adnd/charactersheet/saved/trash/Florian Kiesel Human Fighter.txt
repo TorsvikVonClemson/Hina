@@ -1,0 +1,28 @@
+Name: Florian Kiesel
+Race: Human
+Gender: Male
+Class: Fighter
+Homeland: {}
+Religion: {}
+Motivation: {}
+Alignment: {}
+Personality: {}
+Social Class/Previous Occupation: {}
+Hair: {}
+Eyes: {}
+Appearance: {}
+Height: {}
+Weight: {}
+Str: 11
+Hit Adj: 0
+Dmg Adj: 0
+Weight Allowed:40
+Max Press: 115
+Open Door:6
+Bend Bar Lift Gate: 2%
+Dex: 11
+Con: 13
+Int: 8
+Wis: 8
+Cha: 12
+4

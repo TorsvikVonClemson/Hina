@@ -49,7 +49,9 @@ def roll(race,playerclass):
             p[0]=p[0]-1
 
         if playerclass=='Fighter' and p[0]==18:
-             p[0]=p[0]+(random.randint(0,99)/100)
+             p[0]=str(p[0])+"/"+str(random.randint(1,100))
+             if p[0]=="18/100":
+                p[0]='18/00'
 
 #--------------------#
 # Check for validity #
@@ -60,8 +62,13 @@ def roll(race,playerclass):
 #----------------#
         
         if playerclass=='Fighter':
-            if p[0]>=9:
+            p[0]=str(p[0])
+            if p[0].find('/') != -1:
                 classvalid=1
+            else:
+                p[0]=int(p[0])
+                if p[0]>8:
+                    classvalid=1
 
         elif playerclass=='Paladin':
             if p[0]>=12 and p[2]>=9 and p[4]>=13 and p[5]>=17:
@@ -90,7 +97,7 @@ def roll(race,playerclass):
         elif playerclass=='Bard':
             if p[1]>=12 and p[3]>=13 and p[5]>=15:
                 classvalid=1
-        else: classvalid=1
+        else: classvalid=0
 
 #---------------#
 # Race Validity #

@@ -1,7 +1,7 @@
-Name: Gernot Künstler
+Name: Lutz Ackner
 Race: Human
 Gender: Male
-Class: Cleric
+Class: Wizard
 Homeland: {}
 Religion: {}
 Motivation: {}
@@ -13,15 +13,16 @@ Eyes: {}
 Appearance: {}
 Height: {}
 Weight: {}
-Str: 13
+Str: 14
 Hit Adj: 0
 Dmg Adj: 0
-Weight Allowed:45
-Max Press: 140
-Open Door:7
-Bend Bar Lift Gate: 4%
-Dex: 8
-Con: 11
-Int: 16
-Wis: 15
-Cha: 5
+Weight Allowed:55
+Max Press: 170
+Open Door:8
+Bend Bar Lift Gate: 7%
+Dex: 15
+Con: 12
+Int: 13
+Wis: 11
+Cha: 11
+4

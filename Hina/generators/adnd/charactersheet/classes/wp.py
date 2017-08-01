@@ -51,7 +51,7 @@ def roll(playerclass,god):
         elif roll==16:
             wp="Footman's Flail" 
         elif roll==17:
-            wp="Horsman's Flail"                                
+            wp="Horseman's Flail"                                
         elif roll==18:
             wp="Gaff/Hook"
         elif roll==19:
@@ -101,13 +101,13 @@ def roll(playerclass,god):
         elif roll==40:
             wp="Partisian"
         elif roll==41:
-            wp="Ransuer"
+            wp="Ranseur"
         elif roll==42:
             wp="Spetum"
         elif roll==43:
             wp="Volgue"
         elif roll==44:
-            wp="Quartersraff"    
+            wp="Quarterstaff"    
         elif roll==45:
             wp="Sap"
         elif roll==46:

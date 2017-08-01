@@ -32,7 +32,7 @@ def roll(con):
         mod.append("3")
         mod.append("-1")
         mod.append("0")
-    elif con>9 and con<12:
+    elif con>8 and con<12:
         mod.append("4")
         mod.append("0")
         mod.append("0")

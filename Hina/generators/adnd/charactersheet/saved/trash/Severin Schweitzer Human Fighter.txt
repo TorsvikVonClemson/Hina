@@ -1,7 +1,7 @@
-Name: Bjorn Bendel
+Name: Severin Schweitzer
 Race: Human
 Gender: Male
-Class: Cleric
+Class: Fighter
 Homeland: {}
 Religion: {}
 Motivation: {}
@@ -20,8 +20,9 @@ Weight Allowed:45
 Max Press: 140
 Open Door:7
 Bend Bar Lift Gate: 4%
-Dex: 18
-Con: 10
-Int: 10
-Wis: 11
+Dex: 16
+Con: 15
+Int: 13
+Wis: 15
 Cha: 15
+7

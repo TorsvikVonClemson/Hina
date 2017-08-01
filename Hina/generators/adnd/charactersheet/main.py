@@ -7,6 +7,7 @@ from generators.adnd.charactersheet.race import genders
 from generators.adnd.charactersheet.race import names
 from generators.adnd.charactersheet.race import religion
 from generators.adnd.charactersheet.classes import classes
+from generators.adnd.charactersheet.classes import saves
 from generators.adnd.charactersheet.classes import attribute
 from generators.adnd.charactersheet.classes import strength
 from generators.adnd.charactersheet.classes import dexterity
@@ -17,6 +18,10 @@ from generators.adnd.charactersheet.classes import charisma
 from generators.adnd.charactersheet.classes import wp
 from generators.adnd.charactersheet.classes import dosh
 from generators.adnd.charactersheet.classes import proficiencies
+from generators.adnd.charactersheet.classes import hitdie
+from generators.adnd.charactersheet.equipment import weapons
+from generators.adnd.charactersheet.equipment import armour
+from generators.adnd.charactersheet.equipment import movement
 
 #from generators.adnd.charactersheet.fluff import religion
 
@@ -30,17 +35,23 @@ def main(x):
     gender=genders.roll(race)
     name=names.roll(race,gender)
     playerclass=classes.roll(race)
+    save=saves.roll(playerclass)
     attributes=attribute.roll(race,playerclass)
     stronk=strength.roll(attributes[0])
+    move=movement.roll(race,stronk[3])
     dex=dexterity.roll(attributes[1])
     con=constitution.roll(attributes[2])
     smarts=intelligence.roll(attributes[3])
     wis=wisdom.roll(attributes[4])
     cha=charisma.roll(attributes[5])
-    finaldosh=dosh.roll(playerclass)
+    hp=hitdie.roll(playerclass,con[0])
+    rolleddosh=dosh.roll(playerclass)
     god=religion.roll(race)
     wplist=wp.roll(playerclass,god)
-#    wppurchase=wp.roll(dosh,wplist)
+    pdfweapons=weapons.roll(rolleddosh,wplist)
+    remainingdosh=pdfweapons[0]
+    playerarmour=armour.roll(remainingdosh,playerclass,god,pdfweapons)
+    remainingdosh=playerarmour[0]
     profs=proficiencies.roll(race,playerclass,attributes[3])
     title=name+' '+race+' '+playerclass
 
@@ -101,59 +112,65 @@ def main(x):
         text_file.write("Cha: {}\n".format(attributes[5]))
 
 
+        text_file.write(str(hp))
+
+
     text_file.close()
 
 #-------------#
 # PDF Writing #
 #-------------#
 
-    pdfarray=[]
+    pdfheader=[]
+    pdfattributes=[]
+    pdfproficiencies=[]
 
 #-----Header-----#
 
-    pdfarray.append(name)
-    pdfarray.append("1") #TEMP SPACE FOR LEVEL
-    pdfarray.append(race)
-    pdfarray.append(playerclass)
-    pdfarray.append("TN")#TEMP SPACE FOR ALIGNMENT
-    pdfarray.append(god)
-    pdfarray.append("HOME")#TEMP SPACE FOR HOME
-    pdfarray.append(gender)
-    pdfarray.append("69")#TEMP SPACE FOR AGE
-    pdfarray.append("4'20")#TEMP SPACE FOR HEIGHT
-    pdfarray.append("420")#TEMP SPACE FO WEIGHT
-    pdfarray.append("BALD")#TEMP SPACE FOR HAIR
-    pdfarray.append("NONE")#TEMP SPACE FOR EYES
-    pdfarray.append("UGLY")#TEMP SPACE FOR APPEARANCE
-    pdfarray.append("0")#TEMP SPACE FOR REACTION ADJ
+    pdfheader.append(name)
+    pdfheader.append("1") #TEMP SPACE FOR LEVEL
+    pdfheader.append(race)
+    pdfheader.append(playerclass)
+    pdfheader.append("TN")#TEMP SPACE FOR ALIGNMENT
+    pdfheader.append(god)
+    pdfheader.append("HOME")#TEMP SPACE FOR HOME
+    pdfheader.append(gender)
+    pdfheader.append("69")#TEMP SPACE FOR AGE
+    pdfheader.append("4'20")#TEMP SPACE FOR HEIGHT
+    pdfheader.append("420")#TEMP SPACE FO WEIGHT
+    pdfheader.append("BALD")#TEMP SPACE FOR HAIR
+    pdfheader.append("NONE")#TEMP SPACE FOR EYES
+    pdfheader.append("UGLY")#TEMP SPACE FOR APPEARANCE
+    pdfheader.append("0")#TEMP SPACE FOR REACTION ADJ
 
 
 #-----Attributes-----#
 
-    pdfarray.append(attributes[0])
-    pdfarray=pdfarray+stronk
-    pdfarray.append(attributes[1])
-    pdfarray=pdfarray+dex
-    pdfarray.append(attributes[2])
-    pdfarray=pdfarray+con
-    pdfarray.append(attributes[3])
-    pdfarray=pdfarray+smarts
-    pdfarray.append(attributes[4])
-    pdfarray=pdfarray+wis
-    pdfarray.append(attributes[5])
-    pdfarray=pdfarray+cha
+    pdfattributes.append(attributes[0])
+    pdfattributes=pdfattributes+stronk
+    pdfattributes.append(attributes[1])
+    pdfattributes=pdfattributes+dex
+    pdfattributes.append(attributes[2])
+    pdfattributes=pdfattributes+con
+    pdfattributes.append(attributes[3])
+    pdfattributes=pdfattributes+smarts
+    pdfattributes.append(attributes[4])
+    pdfattributes=pdfattributes+wis
+    pdfattributes.append(attributes[5])
+    pdfattributes=pdfattributes+cha
 
 #-----Proficiencies-----#
 
-    pdfarray=pdfarray+wplist+profs
-    while len(pdfarray)<67:
-        pdfarray.append("")
+    pdfproficiencies=wplist+profs
+    while len(pdfproficiencies)<20:
+        pdfproficiencies.append("")
 
 #----Inventory---#
 
-    pdfarray.append(finaldosh)
+    while len(pdfweapons)<46:
+        pdfweapons.append("")
 
-    pdfwriter.write(pdfarray,pdfpath.format(title))
+    pdfwriter.write(pdfheader,pdfattributes,pdfproficiencies,pdfweapons,remainingdosh,hp,playerarmour,move,save,pdfpath.format(title))
 
 #--------#
 # Return #

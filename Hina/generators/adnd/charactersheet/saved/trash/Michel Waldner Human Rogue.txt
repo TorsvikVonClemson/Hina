@@ -1,7 +1,7 @@
-Name: Jürgen Kirchner
+Name: Michel Waldner
 Race: Human
 Gender: Male
-Class: Cleric
+Class: Rogue
 Homeland: {}
 Religion: {}
 Motivation: {}
@@ -13,15 +13,16 @@ Eyes: {}
 Appearance: {}
 Height: {}
 Weight: {}
-Str: 11
+Str: 9
 Hit Adj: 0
 Dmg Adj: 0
-Weight Allowed:40
-Max Press: 115
-Open Door:6
-Bend Bar Lift Gate: 2%
-Dex: 15
-Con: 10
-Int: 10
-Wis: 12
-Cha: 10
+Weight Allowed:35
+Max Press: 90
+Open Door:5
+Bend Bar Lift Gate: 1%
+Dex: 10
+Con: 11
+Int: 11
+Wis: 13
+Cha: 11
+1
