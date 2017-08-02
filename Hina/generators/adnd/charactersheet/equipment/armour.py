@@ -229,13 +229,29 @@ def roll(dosh,playerclass,god,weapon):
                 shield='Buckler'
                 AC=AC-1
                 weight=weight+3
-            elif dosh>=300 and dosh<700:
+            elif dosh>=300:
                 dosh=dosh-300
                 shield='Small Shield'
                 AC=AC-1
                 weight=weight+5
             else:
                 shield=''
+        elif maxdmg>=8:
+            if dosh>=100 and dosh<300:
+                dosh=dosh-100
+                shield='Buckler'
+                AC=AC-1
+                weight=weight+3
+            elif dosh>=300 and dosh<700:
+                dosh=dosh-300
+                shield='Small Shield'
+                AC=AC-1
+                weight=weight+5
+            elif dosh>=700:
+                dosh=dosh-700
+                shield='Medium Shield'
+                AC=AC-1
+                weight=weight+10
     elif weapon[15]=='Melee' and weapon[14]!='2H':
         split=weapon[14].split('/')
         diemod=0
@@ -264,7 +280,7 @@ def roll(dosh,playerclass,god,weapon):
                 shield='Buckler'
                 AC=AC-1
                 weight=weight+3
-            elif dosh>=300 and dosh<700:
+            elif dosh>=300:
                 dosh=dosh-300
                 shield='Small Shield'
                 AC=AC-1
@@ -282,16 +298,11 @@ def roll(dosh,playerclass,god,weapon):
                 shield='Small Shield'
                 AC=AC-1
                 weight=weight+5
-            elif dosh>=700 and dosh<1000:
+            elif dosh>=700:
                 dosh=dosh-700
                 shield='Medium Shield'
                 AC=AC-1
                 weight=weight+10
-            elif dosh>=1000:
-                dosh=dosh-1000
-                shield='Body Shield'
-                AC=AC-1
-                weight=weight+15
             else:
                 shield=''
 

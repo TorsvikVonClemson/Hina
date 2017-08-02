@@ -22,12 +22,17 @@ from generators.adnd.charactersheet.classes import hitdie
 from generators.adnd.charactersheet.equipment import weapons
 from generators.adnd.charactersheet.equipment import armour
 from generators.adnd.charactersheet.equipment import movement
+from generators.adnd.charactersheet.equipment import miscequip
+from generators.adnd.charactersheet.special import rogue
+from generators.adnd.charactersheet.special import spells
 
 #from generators.adnd.charactersheet.fluff import religion
 
 def main(x):
 
     x=[]
+    skills=[]
+    spelllist=[]
 
     race=""			#
     while race!="Human":	#Temporary Code to force Race
@@ -52,6 +57,15 @@ def main(x):
     remainingdosh=pdfweapons[0]
     playerarmour=armour.roll(remainingdosh,playerclass,god,pdfweapons)
     remainingdosh=playerarmour[0]
+    miscequ=miscequip.roll(remainingdosh,playerclass)
+    remainingdosh=miscequ[0]
+    if playerclass=='Rogue':
+        skills=skills+rogue.roll(attributes[1])
+    if playerclass=='Wizard' or playerclass=='Cleric':
+        spelllist=spelllist+spells.roll(playerclass,smarts[0],god)
+    else:
+        while len(spelllist)<31:
+            spelllist.append("")
     profs=proficiencies.roll(race,playerclass,attributes[3])
     title=name+' '+race+' '+playerclass
 
@@ -170,7 +184,7 @@ def main(x):
     while len(pdfweapons)<46:
         pdfweapons.append("")
 
-    pdfwriter.write(pdfheader,pdfattributes,pdfproficiencies,pdfweapons,remainingdosh,hp,playerarmour,move,save,pdfpath.format(title))
+    pdfwriter.write(pdfheader,pdfattributes,pdfproficiencies,pdfweapons,remainingdosh,hp,playerarmour,move,save,miscequ,skills,spelllist,pdfpath.format(title))
 
 #--------#
 # Return #
@@ -178,6 +192,6 @@ def main(x):
 
     x.append(pdfpath.format(title))
 
-    x.append("\n\n**Character Sheets are automatically saved to a trash folder that will be occasionally cleared, notify me if there is one you want to keep.**\n\n**The only race that can be rolled right now is 'Human' while tests are being conducted**\n\n**Right now 18/00 Strength doesn't work proper so untill it gets fixed so if a Human Fighter has 18 Strength refer to the stats for 18/00 in the book.**\n\n**I encourage contributions, it means alot more can get done.**\n\n**Tell me if an error occurs!**\n\n**        -Love, Hina**")
+    x.append("\n\n**Character Sheets are automatically saved to a trash folder that will be occasionally cleared, notify me if there is one you want to keep.**\n\n**The only race that can be rolled right now is 'Human' while tests are being conducted**\n\n**Right now proficiencies sometimes get rolled twice. If its non-weapon treat it as specialized, if its a weapon proficincy you're just out of luck for now**\n\n**I encourage contributions, it means alot more can get done.**\n\n**Tell me if an error occurs!**\n\n**        -Love, Hina**")
 
     return x

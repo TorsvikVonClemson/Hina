@@ -1,7 +1,7 @@
-Name: Severin Schweitzer
+Name: Marius Lexer
 Race: Human
 Gender: Male
-Class: Fighter
+Class: Rogue
 Homeland: {}
 Religion: {}
 Motivation: {}
@@ -13,16 +13,16 @@ Eyes: {}
 Appearance: {}
 Height: {}
 Weight: {}
-Str: 13
+Str: 9
 Hit Adj: 0
 Dmg Adj: 0
-Weight Allowed:45
-Max Press: 140
-Open Door:7
-Bend Bar Lift Gate: 4%
-Dex: 16
+Weight Allowed:35
+Max Press: 90
+Open Door:5
+Bend Bar Lift Gate: 1%
+Dex: 15
 Con: 15
-Int: 13
-Wis: 15
-Cha: 15
-7
+Int: 16
+Wis: 13
+Cha: 13
+5

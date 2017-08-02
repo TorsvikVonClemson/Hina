@@ -1,7 +1,7 @@
-Name: Horst Lindenlaub
+Name: Sigismund Beckenbauer
 Race: Human
 Gender: Male
-Class: Bard
+Class: Ranger
 Homeland: {}
 Religion: {}
 Motivation: {}
@@ -13,16 +13,16 @@ Eyes: {}
 Appearance: {}
 Height: {}
 Weight: {}
-Str: 9
+Str: 16
 Hit Adj: 0
-Dmg Adj: 0
-Weight Allowed:35
-Max Press: 90
-Open Door:5
-Bend Bar Lift Gate: 1%
-Dex: 13
-Con: 18
+Dmg Adj: 1
+Weight Allowed:70
+Max Press: 195
+Open Door:9
+Bend Bar Lift Gate: 10%
+Dex: 15
+Con: 15
 Int: 13
-Wis: 9
-Cha: 16
-4
+Wis: 14
+Cha: 8
+3

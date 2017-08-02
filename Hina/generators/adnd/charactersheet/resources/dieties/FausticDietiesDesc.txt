@@ -46,7 +46,7 @@ Tyr LG
 	Major Spheres: Combat, War, Travelers
 	Minor Spheres: Healing, Divination, Summoning
 	Favored Weapon: Composite Longbow, Composite Shortbow, Parrying Dagger, flail horseman, Heavy Horse Lance, Jousting Lance, Light Horse Lance, Medium Horse Lance,  Halberd, long spear, rapier, warhammer
-	Favored Armor: Chain
+	Favored Armor: Full PLate
 
 Bahamut LG
 

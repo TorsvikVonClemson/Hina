@@ -4,7 +4,7 @@ from reportlab.lib.units import inch
     #c.line(x1,y1,x2,y2)
 
 
-def write(header,attributes,proficiencies,weapons,dosh,hp,armour,move,save,fp):
+def write(header,attributes,proficiencies,weapons,dosh,hp,armour,move,save,miscequ,skills,spelllist,fp):
 
 
     c=canvas.Canvas(fp)
@@ -213,7 +213,7 @@ def write(header,attributes,proficiencies,weapons,dosh,hp,armour,move,save,fp):
     c.drawString(-.8*inch,8*inch,"CHA")
     c.drawString(-.4*inch,8*inch,str(attributes[28]))
     c.drawString(0*inch,8*inch,"Max Hench:")
-    c.drawString(1*inch,8*inch,attributes[29])
+    c.drawString(1*inch,8*inch,str(attributes[29]))
     c.drawString(3*inch,8*inch,"Loyalty Base:")
     c.drawString(4.5*inch,8*inch,attributes[30])
     c.drawString(5*inch,8*inch,"Reaction Adj.:")
@@ -242,17 +242,14 @@ def write(header,attributes,proficiencies,weapons,dosh,hp,armour,move,save,fp):
 
 
     c.drawString(-.8*inch,7.25*inch,"AC")
-    if attributes[10].find('-') != 0:
+    if attributes[10].find('-') != -1:
         attributes[10]=attributes[10].lstrip('-')
         c.drawString(-.1*inch,7.25*inch,str(int(armour[2])-int(attributes[10])))
-    elif attributes[10].find('+') != 0:
+    elif attributes[10].find('+') != -1:
         attributes[10]=attributes[10].lstrip('+')
         c.drawString(-.1*inch,7.25*inch,str(int(armour[2])+int(attributes[10])))
     else:
         c.drawString(-.1*inch,7.25*inch,str(int(armour[2])))
-
-
-    c.drawString(-.1*inch,7.25*inch,str(int(armour[2])+int(attributes[10])))
 
     c.drawString(-.8*inch,6.95*inch,"Flatfoot")
     c.drawString(-.1*inch,6.95*inch,str(armour[2]))
@@ -414,18 +411,18 @@ def write(header,attributes,proficiencies,weapons,dosh,hp,armour,move,save,fp):
 
 #Poison#
 
-    if attributes[15].find('-') != 0:
+    if attributes[15].find('-') != -1:
         attributes[15]=attributes[15].lstrip('-')
         save[0]=save[0]+int(attributes[15])
-    elif attributes[15].find('+') != 0:
+    elif attributes[15].find('+') != -1:
         save[0]=save[0]-int(attributes[15])
 
 #Magic Save#
 
-    if attributes[24].find('-') != 0:
+    if attributes[24].find('-') != -1:
         attributes[24]=attributes[24].lstrip('-')
         save[4]=save[4]+int(attributes[24])
-    elif attributes[24].find('+') != 0:
+    elif attributes[24].find('+') != -1:
         save[4]=save[4]-int(attributes[24])
 
 #Mind that Dwarves get an additional Magic and Poison save.
@@ -438,6 +435,98 @@ def write(header,attributes,proficiencies,weapons,dosh,hp,armour,move,save,fp):
     c.drawString(.6*inch,3*inch,'0')
 
 
+#-----------#
+# Equipment #
+#-----------#
+
+    c.rect(1.2*inch,2.95*inch,5.85*inch,1.65*inch)
+
+#---Begin: Convert Dosh to Currency---#
+
+    gold=int(dosh/100)
+    dosh=dosh%100
+    silver=int(dosh/10)
+    copper=dosh%10
+
+#---Wealth Column---#
+
+
+    c.drawString(1.3*inch,4.45*inch,"Platinum:")
+    c.drawString(2*inch,4.45*inch,"0")
+
+    c.drawString(1.3*inch,4.2*inch,"Gold:")
+    c.drawString(2*inch,4.2*inch,str(gold))
+
+    c.drawString(1.3*inch,3.95*inch,"Silver:")
+    c.drawString(2*inch,3.95*inch,str(silver))
+
+    c.drawString(1.3*inch,3.7*inch,"Copper:")
+    c.drawString(2*inch,3.7*inch,str(copper))
+
+    c.drawString(1.3*inch,3.45*inch,"Weight")
+    c.drawString(2*inch,3.45*inch,"420") 
+
+#---Column 1---# 
+
+    c.drawString(2.5*inch,4.45*inch,"Item:")
+    c.drawString(4*inch,4.45*inch,"Qty.")
+    c.drawString(4.3*inch,4.45*inch,"Wgt.")
+
+    c.drawString(2.5*inch,4.2*inch,str(miscequ[1]))
+    c.drawString(4*inch,4.2*inch,str(miscequ[2]))
+    c.drawString(4.3*inch,4.2*inch,str(miscequ[3]))
+    c.line(2.5*inch,4.15*inch,4.45*inch,4.15*inch)
+
+    c.drawString(2.5*inch,3.95*inch,str(miscequ[4]))
+    c.drawString(4*inch,3.95*inch,str(miscequ[5]))
+    c.drawString(4.3*inch,3.95*inch,str(miscequ[6]))
+    c.line(2.5*inch,3.9*inch,4.45*inch,3.9*inch)
+
+    c.drawString(2.5*inch,3.7*inch,str(miscequ[7]))
+    c.drawString(4*inch,3.7*inch,str(miscequ[8]))
+    c.drawString(4.3*inch,3.7*inch,str(miscequ[9]))
+    c.line(2.5*inch,3.65*inch,4.45*inch,3.65*inch)
+
+    c.drawString(2.5*inch,3.45*inch,str(miscequ[10]))
+    c.drawString(4*inch,3.45*inch,str(miscequ[11]))
+    c.drawString(4.3*inch,3.45*inch,str(miscequ[12])) 
+    c.line(2.5*inch,3.4*inch,4.45*inch,3.4*inch)
+
+    c.drawString(2.5*inch,3.2*inch,str(miscequ[13]))
+    c.drawString(4*inch,3.2*inch,str(miscequ[14]))
+    c.drawString(4.3*inch,3.2*inch,str(miscequ[15]))
+    c.line(2.5*inch,3.15*inch,4.45*inch,3.15*inch) 
+
+#---Column 2---# 
+
+    c.drawString(4.7*inch,4.45*inch,"Item:")
+    c.drawString(6.2*inch,4.45*inch,"Qty.")
+    c.drawString(6.5*inch,4.45*inch,"Wgt.")
+
+    c.drawString(4.7*inch,4.2*inch,str(miscequ[16]))
+    c.drawString(6.2*inch,4.2*inch,str(miscequ[17]))
+    c.drawString(6.5*inch,4.2*inch,str(miscequ[18]))
+    c.line(4.7*inch,4.15*inch,6.65*inch,4.15*inch)
+
+    c.drawString(4.7*inch,3.95*inch,str(miscequ[19]))
+    c.drawString(6.2*inch,3.95*inch,str(miscequ[20]))
+    c.drawString(6.5*inch,3.95*inch,str(miscequ[21]))
+    c.line(4.7*inch,3.9*inch,6.65*inch,3.9*inch)
+
+    c.drawString(4.7*inch,3.7*inch,str(miscequ[22]))
+    c.drawString(6.2*inch,3.7*inch,str(miscequ[23]))
+    c.drawString(6.5*inch,3.7*inch,str(miscequ[24]))
+    c.line(4.7*inch,3.65*inch,6.65*inch,3.65*inch)
+
+    c.drawString(4.7*inch,3.45*inch,str(miscequ[25]))
+    c.drawString(6.2*inch,3.45*inch,str(miscequ[26]))
+    c.drawString(6.5*inch,3.45*inch,str(miscequ[27]))
+    c.line(4.7*inch,3.4*inch,6.65*inch,3.4*inch) 
+
+    c.drawString(4.7*inch,3.2*inch,str(miscequ[28]))
+    c.drawString(6.2*inch,3.2*inch,str(miscequ[29]))
+    c.drawString(6.5*inch,3.2*inch,str(miscequ[30]))
+    c.line(4.7*inch,3.15*inch,6.65*inch,3.15*inch)
 
 
 
@@ -496,16 +585,160 @@ def write(header,attributes,proficiencies,weapons,dosh,hp,armour,move,save,fp):
     c.line(1.4*inch,.45*inch,3.4*inch,.45*inch)
     c.line(1.4*inch,.2*inch,3.4*inch,.2*inch)
 
+#-------------------#
+# Begin Special Box #
+#-------------------#
+
+    c.drawString(4.9*inch,2.7*inch,"Special Abilities")
+    c.rect(3.8*inch,0*inch,3.4*inch,2.85*inch)
+
+#---Column 1---#
+
+    while len(skills)<20:
+        skills.append("")
+
+    c.drawString(3.9*inch,2.5*inch,skills[0])
+    c.drawString(3.9*inch,2.25*inch,skills[1])
+    c.drawString(3.9*inch,2*inch,skills[2])
+    c.drawString(3.9*inch,1.75*inch,skills[3])
+    c.drawString(3.9*inch,1.5*inch,skills[4])
+    c.drawString(3.9*inch,1.25*inch,skills[5])
+    c.drawString(3.9*inch,1*inch,skills[6])
+    c.drawString(3.9*inch,.75*inch,skills[7])
+    c.drawString(3.9*inch,.5*inch,skills[8])
+    c.drawString(3.9*inch,.25*inch,skills[9])
+
+    c.line(3.9*inch,2.45*inch,5.4*inch,2.45*inch)
+    c.line(3.9*inch,2.2*inch,5.4*inch,2.2*inch)
+    c.line(3.9*inch,1.95*inch,5.4*inch,1.95*inch)
+    c.line(3.9*inch,1.7*inch,5.4*inch,1.7*inch)
+    c.line(3.9*inch,1.45*inch,5.4*inch,1.45*inch)
+    c.line(3.9*inch,1.2*inch,5.4*inch,1.2*inch)
+    c.line(3.9*inch,.95*inch,5.4*inch,.95*inch)
+    c.line(3.9*inch,.7*inch,5.4*inch,.7*inch)
+    c.line(3.9*inch,.45*inch,5.4*inch,.45*inch)
+    c.line(3.9*inch,.2*inch,5.4*inch,.2*inch)
+
+#---Column 2---#
+
+    c.drawString(5.5*inch,2.5*inch,skills[10])
+    c.drawString(5.5*inch,2.25*inch,skills[11])
+    c.drawString(5.5*inch,2*inch,skills[12])
+    c.drawString(5.5*inch,1.75*inch,skills[13])
+    c.drawString(5.5*inch,1.5*inch,skills[14])
+    c.drawString(5.5*inch,1.25*inch,skills[15])
+    c.drawString(5.5*inch,1*inch,skills[16])
+    c.drawString(5.5*inch,.75*inch,skills[17])
+    c.drawString(5.5*inch,.5*inch,skills[18])
+    c.drawString(5.5*inch,.25*inch,skills[19])
+
+    c.line(5.5*inch,2.45*inch,7*inch,2.45*inch)
+    c.line(5.5*inch,2.2*inch,7*inch,2.2*inch)
+    c.line(5.5*inch,1.95*inch,7*inch,1.95*inch)
+    c.line(5.5*inch,1.7*inch,7*inch,1.7*inch)
+    c.line(5.5*inch,1.45*inch,7*inch,1.45*inch)
+    c.line(5.5*inch,1.2*inch,7*inch,1.2*inch)
+    c.line(5.5*inch,.95*inch,7*inch,.95*inch)
+    c.line(5.5*inch,.7*inch,7*inch,.7*inch)
+    c.line(5.5*inch,.45*inch,7*inch,.45*inch)
+    c.line(5.5*inch,.2*inch,7*inch,.2*inch)
+
+
 #--------------#
-# Temp Section #
+# Begin Page 2 #
 #--------------#
 
-    c.drawString(6*inch,2.65*inch,str(dosh))
-
-
-
-    
-    
     c.showPage() #finishes writing on current page, starts a new page if more is added
+
+    c.translate(inch,inch) #moves origin from bottom left to top left
+    c.setFont("Helvetica",10)
+
+#--------#
+# Spells #
+#--------#
+
+    c.rect(-.9*inch,7.65*inch,8*inch,2.85*inch)
+    c.drawString(-.9*inch,10.25*inch,'Spells Per Day')
+
+#---Column 1---#
+    c.drawString(-.8*inch,10*inch,spelllist[0])
+    c.drawString(-.8*inch,9.75*inch,spelllist[1])
+    c.drawString(-.8*inch,9.5*inch,spelllist[2])
+    c.drawString(-.8*inch,9.25*inch,spelllist[3])
+    c.drawString(-.8*inch,9*inch,spelllist[4])
+    c.drawString(-.8*inch,8.75*inch,spelllist[5])
+    c.drawString(-.8*inch,8.5*inch,spelllist[6])
+    c.drawString(-.8*inch,8.25*inch,spelllist[7])
+    c.drawString(-.8*inch,8*inch,spelllist[8])
+    c.drawString(-.8*inch,7.75*inch,spelllist[9])
+
+    c.line(-.8*inch,9.95*inch,2.1*inch,9.95*inch)
+    c.line(-.8*inch,9.7*inch,2.1*inch,9.7*inch)
+    c.line(-.8*inch,9.45*inch,2.1*inch,9.45*inch)
+    c.line(-.8*inch,9.2*inch,2.1*inch,9.2*inch)
+    c.line(-.8*inch,8.95*inch,2.1*inch,8.95*inch)
+    c.line(-.8*inch,8.7*inch,2.1*inch,8.7*inch)
+    c.line(-.8*inch,8.45*inch,2.1*inch,8.45*inch)
+    c.line(-.8*inch,8.2*inch,2.1*inch,8.2*inch)
+    c.line(-.8*inch,7.95*inch,2.1*inch,7.95*inch)
+    c.line(-.8*inch,7.7*inch,2.1*inch,7.7*inch)
+
+
+#---Column 2---#
+    c.drawString(2.2*inch,10*inch,spelllist[10])
+    c.drawString(2.2*inch,9.75*inch,spelllist[11])
+    c.drawString(2.2*inch,9.5*inch,spelllist[12])
+    c.drawString(2.2*inch,9.25*inch,spelllist[13])
+    c.drawString(2.2*inch,9*inch,spelllist[14])
+    c.drawString(2.2*inch,8.75*inch,spelllist[15])
+    c.drawString(2.2*inch,8.5*inch,spelllist[16])
+    c.drawString(2.2*inch,8.25*inch,spelllist[17])
+    c.drawString(2.2*inch,8*inch,spelllist[18])
+    c.drawString(2.2*inch,7.75*inch,spelllist[19])
+
+    c.line(2.2*inch,9.95*inch,5.2*inch,9.95*inch)
+    c.line(2.2*inch,9.7*inch,5.2*inch,9.7*inch)
+    c.line(2.2*inch,9.45*inch,5.2*inch,9.45*inch)
+    c.line(2.2*inch,9.2*inch,5.2*inch,9.2*inch)
+    c.line(2.2*inch,8.95*inch,5.2*inch,8.95*inch)
+    c.line(2.2*inch,8.7*inch,5.2*inch,8.7*inch)
+    c.line(2.2*inch,8.45*inch,5.2*inch,8.45*inch)
+    c.line(2.2*inch,8.2*inch,5.2*inch,8.2*inch)
+    c.line(2.2*inch,7.95*inch,5.2*inch,7.95*inch)
+    c.line(2.2*inch,7.7*inch,5.2*inch,7.7*inch)
+
+#---Column 3---#
+    c.drawString(5.3*inch,10*inch,spelllist[20])
+    c.drawString(5.3*inch,9.75*inch,spelllist[21])
+    c.drawString(5.3*inch,9.5*inch,spelllist[22])
+    c.drawString(5.3*inch,9.25*inch,spelllist[23])
+    c.drawString(5.3*inch,9*inch,spelllist[24])
+    c.drawString(5.3*inch,8.75*inch,spelllist[25])
+    c.drawString(5.3*inch,8.5*inch,spelllist[26])
+    c.drawString(5.3*inch,8.25*inch,spelllist[27])
+    c.drawString(5.3*inch,8*inch,spelllist[28])
+    c.drawString(5.3*inch,7.75*inch,spelllist[29])
+
+    c.line(5.3*inch,9.95*inch,8.3*inch,9.95*inch)
+    c.line(5.3*inch,9.7*inch,8.3*inch,9.7*inch)
+    c.line(5.3*inch,9.45*inch,8.3*inch,9.45*inch)
+    c.line(5.3*inch,9.2*inch,8.3*inch,9.2*inch)
+    c.line(5.3*inch,8.95*inch,8.3*inch,8.95*inch)
+    c.line(5.3*inch,8.7*inch,8.3*inch,8.7*inch)
+    c.line(5.3*inch,8.45*inch,8.3*inch,8.45*inch)
+    c.line(5.3*inch,8.2*inch,8.3*inch,8.2*inch)
+    c.line(5.3*inch,7.95*inch,8.3*inch,7.95*inch)
+    c.line(5.3*inch,7.7*inch,8.3*inch,7.7*inch)
+
+
+
+
+
+
+
+
+
+
+
     c.save() #finalizes the document
     return 0
