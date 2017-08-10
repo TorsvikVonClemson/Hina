@@ -581,6 +581,9 @@ def roll(dosh,playerclass):
     while len(miscequ)<31:
         miscequ.append("")
 
+    if playerclass==("Cleric" or "Paladin"):
+        dosh=0
+
     return miscequ
 
 

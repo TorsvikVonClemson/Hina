@@ -9,7 +9,7 @@ def roll(playerclass,smarts,god):
 
 
     if playerclass=='Wizard':
-        while len(spelllist)<smarts:
+        while len(spelllist)<int(smarts):
             if number==1 and "Affect Normal Fires" not in spelllist:
                 spelllist.append("Affect Normal Fires")
             elif number==2 and "Alarm" not in spelllist:
@@ -145,6 +145,7 @@ def roll(playerclass,smarts,god):
     guardian=["Sacred Guardian"]
     astral=["Speak with Astral Traveler"]
     creation=[]
+    law=[]
 
     if playerclass=='Cleric':
         if god=='Ilmura':

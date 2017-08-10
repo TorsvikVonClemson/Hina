@@ -12,7 +12,7 @@ Direction Sense         Wis+1
 Etiquette               Cha
 Fire-Building           Wis-1
 Fishing                 Wis-1
-Healdry                 Int
+Heraldry                 Int
 Language ({})           Int
 Leatherworking          Int
 Mining                  Wis-3

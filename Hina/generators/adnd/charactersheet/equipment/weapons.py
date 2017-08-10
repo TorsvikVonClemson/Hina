@@ -789,6 +789,7 @@ def roll(Dosh,wp):
             Dosh=Dosh-8500
             wplist.popleft()
         else:
+            weapons[len(weapons)-1]=''
             RoF=""
             atkaDj=""
             DmgaDj=""

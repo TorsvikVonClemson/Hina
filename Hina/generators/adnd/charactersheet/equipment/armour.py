@@ -256,16 +256,14 @@ def roll(dosh,playerclass,god,weapon):
         split=weapon[14].split('/')
         diemod=0
         if split[0].find('+'):
-            diemod=.5
             reform=split[0].split('+')
             split[0]=reform[0]
         elif split[0].find('-'):
-            diemod=-.5
             reform=split[0].split('-')
             split[0]=reform[0]
 
         dmg=split[0].split('D')
-        maxdmg=int(dmg[0])*int(dmg[1])+int(diemod)
+        maxdmg=int(dmg[0])*int(dmg[1])
         if maxdmg<6:
             if dosh>=100:
                 dosh=dosh-100

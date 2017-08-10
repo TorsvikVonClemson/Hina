@@ -252,7 +252,10 @@ def write(header,attributes,proficiencies,weapons,dosh,hp,armour,move,save,misce
         c.drawString(-.1*inch,7.25*inch,str(int(armour[2])))
 
     c.drawString(-.8*inch,6.95*inch,"Flatfoot")
-    c.drawString(-.1*inch,6.95*inch,str(armour[2]))
+    if str(armour[3])=='':
+        c.drawString(-.1*inch,6.95*inch,str(armour[2]))
+    else:
+        c.drawString(-.1*inch,6.95*inch,str(armour[2]-1))
 
     c.drawString(.5*inch,6.95*inch,str(armour[3]))
 
