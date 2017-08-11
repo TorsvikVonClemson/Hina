@@ -1,0 +1,13 @@
+2995SlingThrownDex0AmmunitionAmmunitionB6.1Str: 15
+Hit Adj: 0
+Dmg Adj: 0
+Weight Allowed:55
+Max Press: 170
+Open Door:8
+Bend Bar Lift Gate: 7%
+Dex: 5
+Con: 16
+Int: 13
+Wis: 16
+Cha: 15
+6

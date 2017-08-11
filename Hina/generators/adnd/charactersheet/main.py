@@ -33,6 +33,10 @@ def main(x):
     x=[]
     skills=[]
     spelllist=[]
+    weight=0    #weight is maintained as a FLOAT
+
+
+#---Chargen Headers---#
 
     race=""			#
     while race!="Human":	#Temporary Code to force Race
@@ -41,6 +45,9 @@ def main(x):
     name=names.roll(race,gender)
     playerclass=classes.roll(race)
     save=saves.roll(playerclass)
+    god=religion.roll(race)
+
+#---Chargen Attributes---#
     attributes=attribute.roll(race,playerclass)
     stronk=strength.roll(attributes[0])
     move=movement.roll(race,stronk[3])
@@ -50,15 +57,12 @@ def main(x):
     wis=wisdom.roll(attributes[4])
     cha=charisma.roll(attributes[5])
     hp=hitdie.roll(playerclass,con[0])
-    rolleddosh=dosh.roll(playerclass)
-    god=religion.roll(race)
+
+#---Proficencies and Special Skills---#
+
     wplist=wp.roll(playerclass,god)
-    pdfweapons=weapons.roll(rolleddosh,wplist)
-    remainingdosh=pdfweapons[0]
-    playerarmour=armour.roll(remainingdosh,playerclass,god,pdfweapons)
-    remainingdosh=playerarmour[0]
-    miscequ=miscequip.roll(remainingdosh,playerclass)
-    remainingdosh=miscequ[0]
+    profs=proficiencies.roll(race,playerclass,attributes[3])
+
     if playerclass=='Rogue':
         skills=skills+rogue.roll(attributes[1])
     if playerclass=='Wizard' or playerclass=='Cleric':
@@ -66,9 +70,40 @@ def main(x):
     else:
         while len(spelllist)<31:
             spelllist.append("")
-    profs=proficiencies.roll(race,playerclass,attributes[3])
-    title=name+' '+race+' '+playerclass
 
+
+
+#---Equipment---#
+
+#Money#
+    rolleddosh=dosh.roll(playerclass)
+
+#Weapons#
+    pdfweapons=weapons.roll(rolleddosh,wplist)
+    remainingdosh=pdfweapons[0]
+    loop=0
+    while loop<=4:
+        if pdfweapons[9+(loop*9)]!='':
+            weight=weight+float(pdfweapons[9+(loop*9)])
+        loop +=1
+
+#Armour#
+    playerarmour=armour.roll(remainingdosh,playerclass,god,pdfweapons)
+    remainingdosh=playerarmour[0]
+    weight=weight+float(playerarmour[4])
+
+#Misc#
+    miscequ=miscequip.roll(remainingdosh,playerclass,weight,move[6])
+    remainingdosh=miscequ[0]
+    loop=0
+    while loop<=9:
+        if miscequ[3+(loop*3)]!='':
+            weight=weight+float(miscequ[3+(loop*3)])
+        loop +=1
+
+#---Metadata---#
+
+    title=name+' '+race+' '+playerclass
 
     file = "/generators/adnd/charactersheet/saved/trash/{}.txt"
     pdffile =  "/generators/adnd/charactersheet/saved/trash/{}.pdf"
@@ -80,21 +115,21 @@ def main(x):
 #    Character Sheet Headers    #
 #-------------------------------#
 
-        text_file.write("Name: {}\n".format(name))
-        text_file.write("Race: {}\n".format(race))
-        text_file.write("Gender: {}\n".format(gender))
-        text_file.write("Class: {}\n".format(playerclass))
-        text_file.write("Homeland: {}\n")
-        text_file.write("Religion: {}\n")
-        text_file.write("Motivation: {}\n")
-        text_file.write("Alignment: {}\n")
-        text_file.write("Personality: {}\n")
-        text_file.write("Social Class/Previous Occupation: {}\n")
-        text_file.write("Hair: {}\n")
-        text_file.write("Eyes: {}\n")
-        text_file.write("Appearance: {}\n")
-        text_file.write("Height: {}\n")
-        text_file.write("Weight: {}\n")
+        text_file.write(str(pdfweapons[0]))
+        text_file.write(pdfweapons[1])
+        text_file.write(pdfweapons[2])
+        text_file.write(pdfweapons[3])
+        text_file.write(pdfweapons[4])
+        text_file.write(pdfweapons[5])
+        text_file.write(pdfweapons[6])
+        text_file.write(pdfweapons[7])
+        text_file.write(pdfweapons[8])
+        text_file.write(pdfweapons[9])
+        text_file.write(pdfweapons[10])
+        text_file.write(pdfweapons[11])
+        text_file.write(pdfweapons[12])
+        text_file.write(pdfweapons[13])
+        text_file.write(pdfweapons[14])
 
 #-------------------------------------#
 #    Attributes and Related Values    #
@@ -181,10 +216,9 @@ def main(x):
 
 #----Inventory---#
 
-    while len(pdfweapons)<46:
-        pdfweapons.append("")
 
-    pdfwriter.write(pdfheader,pdfattributes,pdfproficiencies,pdfweapons,remainingdosh,hp,playerarmour,move,save,miscequ,skills,spelllist,pdfpath.format(title))
+
+    pdfwriter.write(pdfheader,pdfattributes,pdfproficiencies,pdfweapons,remainingdosh,hp,playerarmour,move,save,miscequ,skills,spelllist,weight,pdfpath.format(title))
 
 #--------#
 # Return #

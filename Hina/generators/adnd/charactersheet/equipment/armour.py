@@ -200,9 +200,26 @@ def roll(dosh,playerclass,god,weapon):
         else:
             shield=''
 
+    elif weapon[5].find(':')!=-1 or weapon[14].find(':')!=-1:
+        if dosh>=100 and dosh<300:
+            dosh=dosh-100
+            shield='Buckler'
+            AC=AC-1
+            weight=weight+3
+        elif dosh>=300 and dosh<700:
+            dosh=dosh-300
+            shield='Small Shield'
+            AC=AC-1
+            weight=weight+5
+        elif dosh>=700 and dosh<1000:
+            dosh=dosh-700
+            shield='Medium Shield'
+            AC=AC-1
+            weight=weight+10
+
 #find damage
 
-    elif weapon[6]=='Melee' and weapon[5]!='2H':
+    elif weapon[6]=='Melee' and weapon[5].find(':')==-1:
         split=weapon[5].split('/')
         diemod=0
         if split[0].find('+'):
@@ -252,7 +269,7 @@ def roll(dosh,playerclass,god,weapon):
                 shield='Medium Shield'
                 AC=AC-1
                 weight=weight+10
-    elif weapon[15]=='Melee' and weapon[14]!='2H':
+    elif weapon[15]=='Melee' and weapon[14].find(':')==-1:
         split=weapon[14].split('/')
         diemod=0
         if split[0].find('+'):

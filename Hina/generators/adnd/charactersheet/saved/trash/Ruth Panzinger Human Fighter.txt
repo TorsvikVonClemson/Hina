@@ -1,0 +1,13 @@
+6950KnifeMStrStr1D3/1D2MeleeP/S2.5MancatcherMStrStr-/-Str: 10
+Hit Adj: 0
+Dmg Adj: 0
+Weight Allowed:40
+Max Press: 115
+Open Door:6
+Bend Bar Lift Gate: 2%
+Dex: 17
+Con: 12
+Int: 9
+Wis: 17
+Cha: 14
+8

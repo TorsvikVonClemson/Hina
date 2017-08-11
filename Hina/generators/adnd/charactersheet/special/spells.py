@@ -10,6 +10,9 @@ def roll(playerclass,smarts,god):
 
     if playerclass=='Wizard':
         while len(spelllist)<int(smarts):
+
+            number=random.randint(1,53)
+
             if number==1 and "Affect Normal Fires" not in spelllist:
                 spelllist.append("Affect Normal Fires")
             elif number==2 and "Alarm" not in spelllist:

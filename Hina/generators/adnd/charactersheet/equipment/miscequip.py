@@ -1,5 +1,5 @@
 import random
-def roll(dosh,playerclass):
+def roll(dosh,playerclass,weight,enc):
 
     fault=0
 
@@ -18,7 +18,7 @@ def roll(dosh,playerclass):
         miscequ.append(1)
         miscequ.append(.1)
 
-    while fault<=1 and len(miscequ)<31:
+    while fault<=10 and len(miscequ)<30:
 
 #---Switch Statements---#
         additional=0
@@ -567,10 +567,11 @@ def roll(dosh,playerclass):
 
 #---Append---#
 
-        if additional!=1 and reroll!=1:
+        if additional!=1 and reroll!=1 and float(enc)>=float(weight)+float(wgt):
             miscequ.append(item)
             miscequ.append(qty)
             miscequ.append(wgt)
+            weight=float(weight)+float(wgt)
         else:
            addtional=0
            reroll=0
@@ -582,7 +583,7 @@ def roll(dosh,playerclass):
         miscequ.append("")
 
     if playerclass==("Cleric" or "Paladin"):
-        dosh=0
+        miscequ[0]=0
 
     return miscequ
 

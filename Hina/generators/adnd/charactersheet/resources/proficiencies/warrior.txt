@@ -1,16 +1,16 @@
-Animal Lore             Int
-Armorer                 Int-2
-Blind-Fighting          N/A
-Bowyer/Fletcher         Dex
-Charioteering           Dex+2
-Endurance               Con
-Gaming                  Cha
-Hunting                 Wis-1
-Mountaineering          N/A
-Navigation              Int-2
-Running                 Con-6
-Set Snares              Dex-1
-Survival                Int
-Tracking                Wis
-Weaponsmithing          Int-3
-Gunnery                 Int-2
+Animal Lore
+Armorer
+Blind-Fighting
+Bowyer/Fletcher
+Charioteering
+Endurance
+Gaming
+Hunting
+Mountaineering
+Navigation
+Running
+Set Snares
+Survival
+Tracking
+Weaponsmithing
+Gunnery

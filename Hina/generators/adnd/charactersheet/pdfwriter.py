@@ -1,10 +1,11 @@
 from reportlab.pdfgen import canvas
 from reportlab.lib.units import inch
+import os
 
     #c.line(x1,y1,x2,y2)
 
 
-def write(header,attributes,proficiencies,weapons,dosh,hp,armour,move,save,miscequ,skills,spelllist,fp):
+def write(header,attributes,proficiencies,weapons,dosh,hp,armour,move,save,miscequ,skills,spelllist,weight,fp):
 
 
     c=canvas.Canvas(fp)
@@ -110,7 +111,7 @@ def write(header,attributes,proficiencies,weapons,dosh,hp,armour,move,save,misce
 
     c.drawString(4.2*inch,10*inch,"Appearance:")
     c.line(5*inch,9.95*inch,5.8*inch,9.95*inch)
-    c.drawString(5*inch,10*inch,header[13])
+    c.drawString(5*inch,10*inch,str(len(miscequ)))  #tempspot to list equip length
 
 #-----Reaction Adj.-----#
 
@@ -255,7 +256,7 @@ def write(header,attributes,proficiencies,weapons,dosh,hp,armour,move,save,misce
     if str(armour[3])=='':
         c.drawString(-.1*inch,6.95*inch,str(armour[2]))
     else:
-        c.drawString(-.1*inch,6.95*inch,str(armour[2]-1))
+        c.drawString(-.1*inch,6.95*inch,str(armour[2]+1))
 
     c.drawString(.5*inch,6.95*inch,str(armour[3]))
 
@@ -270,10 +271,10 @@ def write(header,attributes,proficiencies,weapons,dosh,hp,armour,move,save,misce
     c.drawString(2.2*inch,7.05*inch,"Heavy:")
     c.drawString(2.2*inch,6.9*inch,"Severe:")
 
-    c.drawString(3.2*inch,7.35*inch,move[5])
-    c.drawString(3.2*inch,7.2*inch,move[6])
-    c.drawString(3.2*inch,7.05*inch,move[7])
-    c.drawString(3.2*inch,6.9*inch,move[8])
+    c.drawString(3.2*inch,7.35*inch,'('+str(move[5])+')')
+    c.drawString(3.2*inch,7.2*inch,'('+str(move[6])+')')
+    c.drawString(3.2*inch,7.05*inch,'('+str(move[7])+')')
+    c.drawString(3.2*inch,6.9*inch,'('+str(move[8])+')')
 
     c.drawString(3.7*inch,7.6*inch,str(move[0]))
     c.drawString(3.7*inch,7.35*inch,str(move[1]))
@@ -318,6 +319,7 @@ def write(header,attributes,proficiencies,weapons,dosh,hp,armour,move,save,misce
 # Begin Weapon Box #
 #------------------#
 
+
     c.drawString(3*inch,6.6*inch,"Weapons")
     c.rect(-.9*inch,6.2*inch,8*inch,.3*inch)
 
@@ -325,7 +327,7 @@ def write(header,attributes,proficiencies,weapons,dosh,hp,armour,move,save,misce
     c.line(1.5*inch,4.7*inch,1.5*inch,6.5*inch)		#Name
     c.drawString(1.6*inch,6.3*inch,"RoF")
     c.line(2*inch,4.7*inch,2*inch,6.5*inch)		#RoF
-    c.drawString(2.1*inch,6.3*inch,"Atk Adj.")
+    c.drawString(2.1*inch,6.3*inch,"THAC0")
     c.line(2.7*inch,4.7*inch,2.7*inch,6.5*inch)		#atkadj
     c.drawString(2.8*inch,6.3*inch,"Dmg Adj.")
     c.line(3.4*inch,4.7*inch,3.4*inch,6.5*inch)		#dmgadj
@@ -342,10 +344,18 @@ def write(header,attributes,proficiencies,weapons,dosh,hp,armour,move,save,misce
 #---Weapon 1---#
     c.rect(-.9*inch,5.9*inch,8*inch,.3*inch)
     c.drawString(-.8*inch,6*inch,weapons[1])
+    weapons[2]=RateofFire(header[3],weapons[1],weapons[2])
     c.drawString(1.6*inch,6*inch,weapons[2])
+    if weapons[1] != '':
+        weapons[3]=THAC0(attributes[8],attributes[1],proficiencies[0],weapons[3])
     c.drawString(2.1*inch,6*inch,weapons[3])
+    if weapons[1] != '':
+        weapons[4]=DamageAdj(weapons[4],attributes[2],proficiencies[0])
     c.drawString(2.8*inch,6*inch,weapons[4])
+    if weapons[5].find(':')!=-1:
+            c.setFont("Helvetica",6)
     c.drawString(3.5*inch,6*inch,weapons[5])
+    c.setFont("Helvetica",10)
     c.drawString(4.5*inch,6*inch,weapons[6])
     c.drawString(5.5*inch,6*inch,weapons[7])
     c.drawString(6*inch,6*inch,weapons[8])
@@ -353,10 +363,18 @@ def write(header,attributes,proficiencies,weapons,dosh,hp,armour,move,save,misce
 #---Weapon 2---#
     c.rect(-.9*inch,5.6*inch,8*inch,.3*inch)
     c.drawString(-.8*inch,5.7*inch,weapons[10])
+    weapons[11]=RateofFire(header[3],weapons[10],weapons[11])
     c.drawString(1.6*inch,5.7*inch,weapons[11])
+    if weapons[10] != '':
+        weapons[12]=THAC0(attributes[8],attributes[1],proficiencies[1],weapons[12])
     c.drawString(2.1*inch,5.7*inch,weapons[12])
+    if weapons[10] != '':
+        weapons[13]=DamageAdj(weapons[13],attributes[2],proficiencies[0])
     c.drawString(2.8*inch,5.7*inch,weapons[13])
+    if weapons[14].find(':')!=-1:
+            c.setFont("Helvetica",6)
     c.drawString(3.5*inch,5.7*inch,weapons[14])
+    c.setFont("Helvetica",10)
     c.drawString(4.5*inch,5.7*inch,weapons[15])
     c.drawString(5.5*inch,5.7*inch,weapons[16])
     c.drawString(6*inch,5.7*inch,weapons[17])
@@ -364,10 +382,18 @@ def write(header,attributes,proficiencies,weapons,dosh,hp,armour,move,save,misce
 #---Weapon 3---#
     c.rect(-.9*inch,5.3*inch,8*inch,.3*inch)
     c.drawString(-.8*inch,5.4*inch,weapons[19])
+    weapons[20]=RateofFire(header[3],weapons[19],weapons[20])
     c.drawString(1.6*inch,5.4*inch,weapons[20])
+    if weapons[19] != '':
+        weapons[21]=THAC0(attributes[8],attributes[1],proficiencies[2],weapons[21])
     c.drawString(2.1*inch,5.4*inch,weapons[21])
+    if weapons[19] != '':
+        weapons[22]=DamageAdj(weapons[22],attributes[2],proficiencies[0])
     c.drawString(2.8*inch,5.4*inch,weapons[22])
+    if weapons[23].find(':')!=-1:
+            c.setFont("Helvetica",6)
     c.drawString(3.5*inch,5.4*inch,weapons[23])
+    c.setFont("Helvetica",10)
     c.drawString(4.5*inch,5.4*inch,weapons[24])
     c.drawString(5.5*inch,5.4*inch,weapons[25])
     c.drawString(6*inch,5.4*inch,weapons[26])
@@ -375,10 +401,18 @@ def write(header,attributes,proficiencies,weapons,dosh,hp,armour,move,save,misce
 #---Weapon 4---#
     c.rect(-.9*inch,5*inch,8*inch,.3*inch)
     c.drawString(-.8*inch,5.1*inch,weapons[28])
+    weapons[29]=RateofFire(header[3],weapons[28],weapons[29])
     c.drawString(1.6*inch,5.1*inch,weapons[29])
+    if weapons[28] != '':
+        weapons[30]=THAC0(attributes[8],attributes[1],proficiencies[3],weapons[30])
     c.drawString(2.1*inch,5.1*inch,weapons[30])
+    if weapons[28] != '':
+        weapons[31]=DamageAdj(weapons[31],attributes[2],proficiencies[0])
     c.drawString(2.8*inch,5.1*inch,weapons[31])
+    if weapons[32].find(':')!=-1:
+            c.setFont("Helvetica",6)
     c.drawString(3.5*inch,5.1*inch,weapons[32])
+    c.setFont("Helvetica",10)
     c.drawString(4.5*inch,5.1*inch,weapons[33])
     c.drawString(5.5*inch,5.1*inch,weapons[34])
     c.drawString(6*inch,5.1*inch,weapons[35])
@@ -386,10 +420,18 @@ def write(header,attributes,proficiencies,weapons,dosh,hp,armour,move,save,misce
 #---Weapon 5---#
     c.rect(-.9*inch,4.7*inch,8*inch,.3*inch)
     c.drawString(-.8*inch,4.8*inch,weapons[37])
+    weapons[38]=RateofFire(header[3],weapons[37],weapons[38])
     c.drawString(1.6*inch,4.8*inch,weapons[38])
+    if weapons[37] != '':
+        weapons[39]=THAC0(attributes[8],attributes[1],proficiencies[4],weapons[39])
     c.drawString(2.1*inch,4.8*inch,weapons[39])
+    if weapons[37] != '':
+        weapons[40]=DamageAdj(weapons[40],attributes[2],proficiencies[0])
     c.drawString(2.8*inch,4.8*inch,weapons[40])
+    if weapons[41].find(':')!=-1:
+            c.setFont("Helvetica",6)
     c.drawString(3.5*inch,4.8*inch,weapons[41])
+    c.setFont("Helvetica",10)
     c.drawString(4.5*inch,4.8*inch,weapons[42])
     c.drawString(5.5*inch,4.8*inch,weapons[43])
     c.drawString(6*inch,4.8*inch,weapons[44])
@@ -467,7 +509,13 @@ def write(header,attributes,proficiencies,weapons,dosh,hp,armour,move,save,misce
     c.drawString(2*inch,3.7*inch,str(copper))
 
     c.drawString(1.3*inch,3.45*inch,"Weight")
-    c.drawString(2*inch,3.45*inch,"420") 
+
+#Remove Rounding from Float#
+    weight=weight*1000
+    top=int(weight/1000)
+    bottom=int(weight)%1000
+
+    c.drawString(2*inch,3.45*inch,(str(top)+'.'+str(bottom))) 
 
 #---Column 1---# 
 
@@ -734,6 +782,35 @@ def write(header,attributes,proficiencies,weapons,dosh,hp,armour,move,save,misce
     c.line(5.3*inch,7.7*inch,8.3*inch,7.7*inch)
 
 
+#--------------------------#
+# Rules and Fluff Function #
+#--------------------------#
+
+    xdisp=0
+    inc=0
+    c.setFont("Helvetica",9)
+
+    file = "/generators/adnd/charactersheet/resources/test/test.txt"
+    path=os.getcwd()+file
+    fp=open(path,'r+');
+    with open(path,"r") as text_file:
+        lines=text_file.readlines()
+        text_file.close()
+        while len(lines)>inc:
+            lines[0+inc]=lines[0+inc].rstrip("\n")
+            inc+=1
+
+    inc=0
+
+    while len(lines)>inc:
+        c.drawString(-.8*inch,(7-(xdisp*.15))*inch,lines[0+inc])
+        inc+=1
+        xdisp+=1
+
+    c.rect(-.9*inch,(7-(xdisp*.15))*inch,8*inch,((inc+1)*.15)*inch)
+
+
+
 
 
 
@@ -745,3 +822,63 @@ def write(header,attributes,proficiencies,weapons,dosh,hp,armour,move,save,misce
 
     c.save() #finalizes the document
     return 0
+
+#----------------------#
+# Additional Functions #
+#----------------------#
+
+def RateofFire(playerclass,name,RoF):
+
+    if playerclass!= "Fighter":   #Re-define RoF
+        if RoF=="M":
+            RoF='1'
+        elif RoF=="Thrown":      
+            RoF='1'
+    else:
+        if RoF=="M":
+            RoF='3/2'
+        elif name=="Light Crossbow":
+            RoF='1'
+        elif name=="Heavy Crossbow":      
+            RoF='1/2'
+        elif name=="Dart":
+            RoF='4'
+        elif RoF=="Thrown" or name=="Blowgun" or name=="Staff Sling":
+            RoF='3/2'
+    return RoF
+
+def THAC0(missile,melee,spec,based):
+    THAC0Value=20
+
+
+    if based=="Str":
+        if melee.find("-")!=-1:
+            melee=melee.lstrip('-')
+            THAC0Value=THAC0Value+int(melee)
+        if melee.find("+")!=-1:
+            melee=melee.lstrip('+')
+            THAC0Value=THAC0Value-int(melee)
+    if based=='Dex':
+        if missile.find("-")!=-1:
+            missile=missile.lstrip('-')
+            THAC0Value=THAC0Value+int(missile)
+        if missile.find("+")!=-1:
+            missile=missile.lstrip('+')
+            THAC0Value=THAC0Value-int(missile)
+    if spec.find("Specialist") != -1:
+        THAC0Value=THAC0Value-1
+    return str(THAC0Value)
+
+def DamageAdj(based,stronk,spec):
+    damage=0
+
+    if based=="Str":
+        if stronk.find("-")!=-1:
+            stronk=stronk.lstrip('-')
+            damage=damage-int(stronk)
+        if stronk.find("+")!=-1:
+            stronk=stronk.lstrip('+')
+            damage=damage+int(stronk)
+    if spec.find("Specialist") != -1:
+        damage=damage+2
+    return str(damage)

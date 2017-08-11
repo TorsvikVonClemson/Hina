@@ -6,6 +6,8 @@ def roll(Dosh,wp):
     weapons.append(Dosh)    #sets Dosh as the 0 value
 
     while len(wplist)>0:
+        if wplist[0].find("Specialist")!=-1:
+            wplist[0]=wplist[0].replace(" Specialist",'')
         weapons.append(wplist[0])
         if wplist[0]=="Battleaxe" and Dosh>500:
             RoF="M"
@@ -150,17 +152,6 @@ def roll(Dosh,wp):
             Weight="1"
             Dosh=Dosh-200
             wplist.popleft()
-        elif wplist[0]=="Dagger" and Dosh>200:
-            RoF="M"
-            atkaDj="Str"
-            DmgaDj="Str"
-            Damage="1D4/1D3"
-            Range="10/20/30"
-            Type="P"
-            SpeeD="2"
-            Weight="1"
-            Dosh=Dosh-200
-            wplist.popleft()
         elif wplist[0]=="Parrying Dagger" and Dosh>500:
             RoF="M"
             atkaDj="Str"
@@ -231,7 +222,7 @@ def roll(Dosh,wp):
             RoF="M"
             atkaDj="Str"
             DmgaDj="Str"
-            Damage="2H"
+            Damage="1D4+1/1D6+1:2D4/2D6"
             Range="Reach"
             Type="P"
             SpeeD="7"
@@ -242,7 +233,7 @@ def roll(Dosh,wp):
             RoF="M"
             atkaDj="Str/Dex"
             DmgaDj="Str"
-            Damage="2H"
+            Damage="1D4/1D4:1D6/1D6"
             Range="20/60/80"
             Type="P"
             SpeeD="4"
@@ -349,7 +340,7 @@ def roll(Dosh,wp):
             Dosh=Dosh-1000
             wplist.popleft()
         elif wplist[0]=="Net" and Dosh>500:
-            RoF="M"
+            RoF="Thrown"
             atkaDj="Dex"
             DmgaDj="-"
             Damage="-/-"
@@ -547,7 +538,7 @@ def roll(Dosh,wp):
             Dosh=Dosh-60
             wplist.popleft()
         elif wplist[0]=="Sling" and Dosh>5:
-            RoF="M"
+            RoF="Thrown"
             atkaDj="Dex"
             DmgaDj="0"
             Damage="Ammunition"
@@ -561,7 +552,7 @@ def roll(Dosh,wp):
             RoF="M"
             atkaDj="Str"
             DmgaDj="Str"
-            Damage="2H"
+            Damage="1D6/1D8:1D8+1/2D6"
             Range="Melee"
             Type="P"
             SpeeD="6"
@@ -572,7 +563,7 @@ def roll(Dosh,wp):
             RoF="M"
             atkaDj="Str"
             DmgaDj="Str"
-            Damage="2H"
+            Damage="1D8/1D8+1:2D6/3D6"
             Range="Reach"
             Type="P"
             SpeeD="8"
@@ -580,7 +571,7 @@ def roll(Dosh,wp):
             Dosh=Dosh-500
             wplist.popleft()
         elif wplist[0]=="Staff Sling" and Dosh>20: #DesigneD to lob objects like grenaDes, oils and large rocks
-            RoF="M"
+            RoF="2/1"
             atkaDj="Dex"
             DmgaDj="0"
             Damage="Ammunition"
@@ -605,7 +596,7 @@ def roll(Dosh,wp):
             RoF="M"
             atkaDj="Str"
             DmgaDj="Str"
-            Damage="2H"
+            Damage="1D8/1D12:2D4/2D8"
             Range="Melee"
             Type="S"
             SpeeD="6"
@@ -715,7 +706,7 @@ def roll(Dosh,wp):
             RoF="M"
             atkaDj="Str"
             DmgaDj="Str"
-            Damage="2H"
+            Damage="1D6+1/3D4:1D8+1/3D4"
             Range="Reach"
             Type="P"
             SpeeD="7"
@@ -801,7 +792,7 @@ def roll(Dosh,wp):
             wplist.popleft()
             
         
-
+        
         weapons[0]=Dosh
         weapons.append(RoF)
         weapons.append(atkaDj)
@@ -811,4 +802,7 @@ def roll(Dosh,wp):
         weapons.append(Type)
         weapons.append(SpeeD)
         weapons.append(Weight)
+
+    while len(weapons)<46:
+        weapons.append("")
     return weapons

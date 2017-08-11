@@ -5,6 +5,7 @@ import os
 def roll(race,playerclass,intel):
 
     proffinal=[]
+    doublelist=["Mining","Astrology","Engineering","Healing","Herbalism","Blind-Fighting","Gem Cutting","Reading Lips","Armorer","Bowyer/Fletcher","Endurance","Survival","Tracking"]
 
 #------------------------#
 # Starting proficiencies #
@@ -50,9 +51,9 @@ def roll(race,playerclass,intel):
 
     if playerclass=='Cleric':
         profcount=4
-    elif playerclass=='Rogue':
+    elif playerclass=='Rogue' or 'Bard':
         profcount=3
-    elif playerclass=='Fighter':
+    elif playerclass=='Fighter' or 'Ranger' or 'Paladin':
         profcount=3
     elif playerclass=='Wizard':
         profcount=4
@@ -165,6 +166,90 @@ def roll(race,playerclass,intel):
 
             text_file.close()
 
+#-------------------------#
+# Fill Bard Proficiencies #
+#-------------------------#
+
+
+    if playerclass == 'Bard':
+
+        file = "/generators/adnd/charactersheet/resources/proficiencies/warrior.txt"
+        path=os.getcwd()+file
+        fp=open(path,'r+');
+        with open(path,"r") as text_file:
+
+            proflist.extend(text_file.readlines())
+
+            text_file.close()
+
+        file = "/generators/adnd/charactersheet/resources/proficiencies/rogue.txt"
+        path=os.getcwd()+file
+        fp=open(path,'r+');
+        with open(path,"r") as text_file:
+
+
+            proflist.extend(text_file.readlines())
+
+            text_file.close()
+
+        file = "/generators/adnd/charactersheet/resources/proficiencies/wizard.txt"
+        path=os.getcwd()+file
+        fp=open(path,'r+');
+        with open(path,"r") as text_file:
+
+            proflist.extend(text_file.readlines())
+
+            text_file.close()
+
+
+#----------------------------#
+# Fill Paladin Proficiencies #
+#----------------------------#
+
+    if playerclass == 'Paladin':
+        file = "/generators/adnd/charactersheet/resources/proficiencies/priest.txt"
+        path=os.getcwd()+file
+        fp=open(path,'r+');
+        with open(path,"r") as text_file:
+
+
+            proflist.extend(text_file.readlines())
+
+            text_file.close()
+
+        file = "/generators/adnd/charactersheet/resources/proficiencies/warrior.txt"
+        path=os.getcwd()+file
+        fp=open(path,'r+');
+        with open(path,"r") as text_file:
+
+            proflist.extend(text_file.readlines())
+
+            text_file.close()
+
+#---------------------------#
+# Fill Ranger Proficiencies #
+#---------------------------#
+
+    if playerclass == 'Ranger':
+
+        file = "/generators/adnd/charactersheet/resources/proficiencies/warrior.txt"
+        path=os.getcwd()+file
+        fp=open(path,'r+');
+        with open(path,"r") as text_file:
+
+            proflist.extend(text_file.readlines())
+
+            text_file.close()
+
+        file = "/generators/adnd/charactersheet/resources/proficiencies/wizard.txt"
+        path=os.getcwd()+file
+        fp=open(path,'r+');
+        with open(path,"r") as text_file:
+
+            proflist.extend(text_file.readlines())
+
+            text_file.close()
+
 #-----------------#
 # Roll From Lists #
 #-----------------#
@@ -172,7 +257,36 @@ def roll(race,playerclass,intel):
     while profcount>0:
         profchoice=random.choice(proflist)
         profchoice=profchoice.rstrip('\n')
-        proffinal.append(profchoice)
-        profcount -= 1
+
+        if profchoice in proffinal:
+            location=proffinal.index(profchoice)
+            proffinal[location]=proffinal[location]+'+1'
+            profcount -= 1
+        else:
+
+#---Check Validity---#
+            if (profchoice in doublelist) and profcount>=2:
+
+                proffinal.append(profchoice)
+                profcount -= 2
+
+            elif (profchoice in doublelist) and profcount<2:
+                
+                break
+            
+            elif profchoice=="Weaponsmithing" and profcount>=3:
+
+                proffinal.append(profchoice)
+                profcount -= 3
+
+            elif profchoice=="Weaponsmithing" and profcount<3:
+
+                break
+
+            else:
+
+                proffinal.append(profchoice)
+                profcount -= 1
+
 
     return proffinal

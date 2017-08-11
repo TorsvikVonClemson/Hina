@@ -1,0 +1,13 @@
+7900SapMStrStr1D2/1D2MeleeB5.1MancatcherMStrStr-/-Str: 17
+Hit Adj: +1
+Dmg Adj: +1
+Weight Allowed:85
+Max Press: 220
+Open Door:10
+Bend Bar Lift Gate: 13%
+Dex: 12
+Con: 7
+Int: 11
+Wis: 17
+Cha: 9
+8

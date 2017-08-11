@@ -4,7 +4,9 @@ def roll(playerclass,god):
 #After rolling weapon check for validity, do this by listing the numbers of weapons allowed and comparing it to the actuall weapon rolled.
 
     wplist=[]
+    error=0
     wpcount=5
+    doublespec=["Composite Longbow","Composite Shortbow","Shortbow","Longbow"]
 
     if playerclass=="Fighter" or playerclass=="Ranger" or playerclass=="Paldin":
         wpcount=4
@@ -14,7 +16,7 @@ def roll(playerclass,god):
         wpcount=2
     elif playerclass=="Rogue" or playerclass=="Bard":
         wpcount=2
-    while wpcount>0:
+    while wpcount>0 and error<10:
         legal=True
 
         roll=random.randint(1,75)
@@ -235,8 +237,19 @@ def roll(playerclass,god):
         else:
             legal=False
 
+        if wp in wplist:
+            legal=False
+            error +=1
 
-        if legal==True:
+        if playerclass=="Fighter" and wp not in doublespec and legal==True:
+            wp=wp+" Specialist"
+            wpcount -= 2
+            wplist.append(wp)
+        elif playerclass=="Fighter" and wp in doublespec and legal==True:
+            wp=wp+" Specialist"
+            wpcount -= 3
+            wplist.append(wp)
+        elif legal==True:
             wplist.append(wp)
             wpcount -= 1
         else:

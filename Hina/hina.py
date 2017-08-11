@@ -6,6 +6,8 @@ import generators.hub
 import generators.adnd.adndhub
 
 
+
+
 client = discord.Client()
 
 @client.event
@@ -17,6 +19,10 @@ async def on_ready():
 
 @client.event
 async def on_message(message):
+
+    say='fault'
+    image='fault'
+
     if message.content.startswith('!test'):
         counter = 0
         tmp = await client.send_message(message.channel, 'Calculating messages...')
@@ -66,9 +72,9 @@ async def on_message(message):
         say=data[1]
         image=data[0]
         
-        if say!='fault':
-            await client.send_message(message.channel,'{}'.format(say) ) 
-        if image!='fault':
-            await client.send_file(message.channel,'{}'.format(image))
+    if say!='fault':
+        await client.send_message(message.channel,'{}'.format(say) ) 
+    if image!='fault':
+        await client.send_file(message.channel,'{}'.format(image))
 
 client.run('MzAxNjM4NDg3NjMzODIxNjk3.C9Ahqw.u53J4fjNPW-ODS0XnqZvtlqjJiY')

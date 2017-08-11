@@ -19,10 +19,10 @@ def roll(race,maxpress):
     heavyweight=int(maxpress*(4/6))
     severeweight=int(maxpress*(5/6))
 
-    lightweight='('+str(lightweight)+')'
-    modweight='('+str(modweight)+')'
-    heavyweight='('+str(heavyweight)+')'
-    severeweight='('+str(severeweight)+')'
+    lightweight=str(lightweight)
+    modweight=str(modweight)
+    heavyweight=str(heavyweight)
+    severeweight=str(severeweight)
 
     movement=[basemove,lightmove,modmove,heavymove,severemove,lightweight,modweight,heavyweight,severeweight]
 
