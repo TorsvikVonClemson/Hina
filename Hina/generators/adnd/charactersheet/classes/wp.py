@@ -8,7 +8,7 @@ def roll(playerclass,god):
     wpcount=5
     doublespec=["Composite Longbow","Composite Shortbow","Shortbow","Longbow"]
 
-    if playerclass=="Fighter" or playerclass=="Ranger" or playerclass=="Paldin":
+    if playerclass=="Fighter" or playerclass=="Ranger" or playerclass=="Paladin":
         wpcount=4
     elif playerclass=="Wizard":
         wpcount=1

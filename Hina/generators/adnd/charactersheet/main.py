@@ -6,6 +6,13 @@ from generators.adnd.charactersheet.race import races
 from generators.adnd.charactersheet.race import genders
 from generators.adnd.charactersheet.race import names
 from generators.adnd.charactersheet.race import religion
+from generators.adnd.charactersheet.race import age
+from generators.adnd.charactersheet.race import height
+from generators.adnd.charactersheet.race import hair
+from generators.adnd.charactersheet.race import eyes
+from generators.adnd.charactersheet.race import weight
+from generators.adnd.charactersheet.race import facialhair
+from generators.adnd.charactersheet.race import personality
 from generators.adnd.charactersheet.classes import classes
 from generators.adnd.charactersheet.classes import saves
 from generators.adnd.charactersheet.classes import attribute
@@ -25,7 +32,7 @@ from generators.adnd.charactersheet.equipment import movement
 from generators.adnd.charactersheet.equipment import miscequip
 from generators.adnd.charactersheet.special import rogue
 from generators.adnd.charactersheet.special import spells
-
+from generators.adnd.charactersheet.fluff import motivation
 #from generators.adnd.charactersheet.fluff import religion
 
 def main(x):
@@ -33,7 +40,7 @@ def main(x):
     x=[]
     skills=[]
     spelllist=[]
-    weight=0    #weight is maintained as a FLOAT
+    equipweight=0    #weight is maintained as a FLOAT
 
 
 #---Chargen Headers---#
@@ -46,6 +53,14 @@ def main(x):
     playerclass=classes.roll(race)
     save=saves.roll(playerclass)
     god=religion.roll(race)
+    years=age.roll(race)
+    alt=height.roll(race,gender)
+    lbs=weight.roll(race,gender)
+    beard=facialhair.roll(race,gender)
+    hairs=hair.roll(race)
+    person=personality.roll(race)
+    eye=eyes.roll(eyes)
+    motive=motivation.roll(race,god,playerclass)
 
 #---Chargen Attributes---#
     attributes=attribute.roll(race,playerclass)
@@ -84,21 +99,21 @@ def main(x):
     loop=0
     while loop<=4:
         if pdfweapons[9+(loop*9)]!='':
-            weight=weight+float(pdfweapons[9+(loop*9)])
+            equipweight=equipweight+float(pdfweapons[9+(loop*9)])
         loop +=1
 
 #Armour#
     playerarmour=armour.roll(remainingdosh,playerclass,god,pdfweapons)
     remainingdosh=playerarmour[0]
-    weight=weight+float(playerarmour[4])
+    equipweight=equipweight+float(playerarmour[4])
 
 #Misc#
-    miscequ=miscequip.roll(remainingdosh,playerclass,weight,move[6])
+    miscequ=miscequip.roll(remainingdosh,playerclass,equipweight,move[6])
     remainingdosh=miscequ[0]
     loop=0
     while loop<=9:
         if miscequ[3+(loop*3)]!='':
-            weight=weight+float(miscequ[3+(loop*3)])
+            equipweight=equipweight+float(miscequ[3+(loop*3)])
         loop +=1
 
 #---Metadata---#
@@ -184,13 +199,15 @@ def main(x):
     pdfheader.append(god)
     pdfheader.append("HOME")#TEMP SPACE FOR HOME
     pdfheader.append(gender)
-    pdfheader.append("69")#TEMP SPACE FOR AGE
-    pdfheader.append("4'20")#TEMP SPACE FOR HEIGHT
-    pdfheader.append("420")#TEMP SPACE FO WEIGHT
-    pdfheader.append("BALD")#TEMP SPACE FOR HAIR
-    pdfheader.append("NONE")#TEMP SPACE FOR EYES
+    pdfheader.append(str(years))
+    pdfheader.append(alt)
+    pdfheader.append(lbs)
+    pdfheader.append(str(hairs))
+    pdfheader.append(eye)
     pdfheader.append("UGLY")#TEMP SPACE FOR APPEARANCE
-    pdfheader.append("0")#TEMP SPACE FOR REACTION ADJ
+    pdfheader.append(beard)
+    pdfheader.append("Occupation")
+    pdfheader.append(person)
 
 
 #-----Attributes-----#
@@ -218,7 +235,7 @@ def main(x):
 
 
 
-    pdfwriter.write(pdfheader,pdfattributes,pdfproficiencies,pdfweapons,remainingdosh,hp,playerarmour,move,save,miscequ,skills,spelllist,weight,pdfpath.format(title))
+    pdfwriter.write(pdfheader,motive,pdfattributes,pdfproficiencies,pdfweapons,remainingdosh,hp,playerarmour,move,save,miscequ,skills,spelllist,equipweight,pdfpath.format(title))
 
 #--------#
 # Return #

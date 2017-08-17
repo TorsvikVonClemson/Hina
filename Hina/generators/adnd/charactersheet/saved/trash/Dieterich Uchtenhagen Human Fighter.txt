@@ -1,0 +1,13 @@
+4700Long SpearMStrStr1D8/1D8+1:2D6/3D6ReachP88Bec De CorbinMStrStr1D8/1D6Str: 10
+Hit Adj: 0
+Dmg Adj: 0
+Weight Allowed:40
+Max Press: 115
+Open Door:6
+Bend Bar Lift Gate: 2%
+Dex: 10
+Con: 10
+Int: 12
+Wis: 13
+Cha: 17
+8

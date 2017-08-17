@@ -1,0 +1,13 @@
+4900SapMStrStr1D2/1D2MeleeB5.1ClubMStrStr1D6/1D3Str: 5
+Hit Adj: -2
+Dmg Adj: -1
+Weight Allowed:10
+Max Press: 25
+Open Door:3
+Bend Bar Lift Gate: 0%
+Dex: 10
+Con: 12
+Int: 18
+Wis: 11
+Cha: 13
+4

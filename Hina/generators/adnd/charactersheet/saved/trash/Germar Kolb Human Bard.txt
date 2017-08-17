@@ -1,0 +1,13 @@
+8400Blowgun2Dex0Ammunition10/20/30N/A52ScourgeMStrStr1D4/1D2Str: 14
+Hit Adj: 0
+Dmg Adj: 0
+Weight Allowed:55
+Max Press: 170
+Open Door:8
+Bend Bar Lift Gate: 7%
+Dex: 15
+Con: 9
+Int: 13
+Wis: 17
+Cha: 16
+2

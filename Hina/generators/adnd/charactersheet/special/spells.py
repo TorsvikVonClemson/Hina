@@ -154,7 +154,7 @@ def roll(playerclass,smarts,god):
         if god=='Ilmura':
             spelllist=spelllist+allsphere+plant+sun+weather+divination+summoning+charm
         elif god=='Makabel':
-            spelllist=spelllist+allsphere+necromancy+protection+astral+summoning+healing+combat
+            spelllist=spelllist+allsphere+necromantic+protection+astral+summoning+healing+combat
         elif god=='Leuchtag':
             spelllist=spelllist+allsphere+fire+sun+healing+chaos+wards+law+necromantic+summoning
         elif god=='Straffeherr':

@@ -1,0 +1,13 @@
+5950Short SwordMStrStr1D6/1D8MeleeS2.5BolaThrownDex01D3/1D2Str: 14
+Hit Adj: 0
+Dmg Adj: 0
+Weight Allowed:55
+Max Press: 170
+Open Door:8
+Bend Bar Lift Gate: 7%
+Dex: 13
+Con: 15
+Int: 12
+Wis: 13
+Cha: 7
+10
