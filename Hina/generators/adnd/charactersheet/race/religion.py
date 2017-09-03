@@ -11,7 +11,7 @@ def roll(race):
         elif roll==3:
             relig="Leuchtag"
         elif roll==4:
-            relig="Strafeherr"
+            relig="Straffherr"
         elif roll==5:
             relig="Tyr"
         elif roll==6:

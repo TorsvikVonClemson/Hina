@@ -151,7 +151,7 @@ def roll(dosh,playerclass,god,weapon):
 
         elif god=="Gerdora":
             dosh=dosh-12000
-            buy='Cuirass and Lobster Tail Helm'
+            buy='Cuirass'
             AC=6
             weight=40
 
@@ -165,42 +165,18 @@ def roll(dosh,playerclass,god,weapon):
 
 #---Shields---#
 
-    if playerclass=='Wizard':
-            shield=''
+
 
 #2H#
+    twoh=['Harpoon','Heavy Horse Lance','Jousting Lance','Light Horse Lance','Medium Horse Lance','Quarterstaff','Zweihander','Trident']
 
-    elif (weapon[1]=='Harpoon' or weapon[1].find('Lance') != -1 or weapon[1]=='Quarterstaff' or weapon[1]=='Zweihander' or weapon[1]=='Trident') and (weapon[10]=='Harpoon' or weapon[10].find('Lance') != -1 or weapon[10]=='Quarterstaff' or weapon[10]=='Zweihander' or weapon[10]=='Trident'):
-         shield=''
-
-
-#Reach#
-
-    elif weapon[6]=="Reach" or weapon[15]=="Reach": 
-        if dosh>=100 and dosh<300:
-            dosh=dosh-100
-            shield='Buckler'
-            AC=AC-1
-            weight=weight+3
-        elif dosh>=300 and dosh<700:
-            dosh=dosh-300
-            shield='Small Shield'
-            AC=AC-1
-            weight=weight+5
-        elif dosh>=700 and dosh<1000:
-            dosh=dosh-700
-            shield='Medium Shield'
-            AC=AC-1
-            weight=weight+10
-        elif dosh>=1000:
-            dosh=dosh-1000
-            shield='Body Shield'
-            AC=AC-1
-            weight=weight+15
-        else:
+    i=0
+    while i<len(weapon):
+        if weapon[i] in twoh:
             shield=''
+        i+=1
 
-    elif weapon[5].find(':')!=-1 or weapon[14].find(':')!=-1:
+    if weapon[5].find(':')!=-1 or weapon[14].find(':')!=-1:
         if dosh>=100 and dosh<300:
             dosh=dosh-100
             shield='Buckler'
@@ -219,7 +195,7 @@ def roll(dosh,playerclass,god,weapon):
 
 #find damage
 
-    elif weapon[6]=='Melee' and weapon[5].find(':')==-1:
+    if weapon[6]=='Melee' and weapon[5].find(':')==-1:
         split=weapon[5].split('/')
         diemod=0
         if split[0].find('+'):
@@ -269,7 +245,7 @@ def roll(dosh,playerclass,god,weapon):
                 shield='Medium Shield'
                 AC=AC-1
                 weight=weight+10
-    elif weapon[15]=='Melee' and weapon[14].find(':')==-1:
+    if weapon[15]=='Melee' and weapon[14].find(':')==-1:
         split=weapon[14].split('/')
         diemod=0
         if split[0].find('+'):
@@ -323,14 +299,15 @@ def roll(dosh,playerclass,god,weapon):
 
 #Ranged#
 
-    elif weapon[6].find('/') !=-1 or weapon[16].find('/') or weapon[6].find=='Ammunition' or weapon[16].find('/') !=-1 or weapon[6].find=='Ammunition':
+    if weapon[6].find('/') !=-1 or weapon[16].find('/') or weapon[6].find=='Ammunition' or weapon[16].find('/') !=-1 or weapon[6].find=='Ammunition':
         if dosh>=100:
             shield='Buckler'
             AC=AC-1        
         else:
             shield=''
 
-
+    if playerclass=='Wizard':
+            shield=''
         
     
     stats=[dosh,buy,AC,shield,weight]

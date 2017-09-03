@@ -86,6 +86,17 @@ def roll(Dosh,wp):
             Weight="2"
             Dosh=Dosh-50
             wplist.popleft()
+        elif wplist[0]=="Caltrop" and Dosh>20:
+            RoF="1"
+            atkaDj="Dex"
+            DmgaDj="Str"
+            Damage="1/1D2"
+            Range="Thrown"
+            Type="P"
+            SpeeD="0"
+            Weight=".2"
+            Dosh=Dosh-20
+            wplist.popleft()
         elif wplist[0]=="Chain" and Dosh>50:
             RoF="M"
             atkaDj="Str"
@@ -242,8 +253,8 @@ def roll(Dosh,wp):
             wplist.popleft()
         elif wplist[0]=="Knife" and Dosh>50:
             RoF="M"
-            atkaDj="Str"
-            DmgaDj="Str"
+            atkaDj="Str-1"
+            DmgaDj="Str-1"
             Damage="1D3/1D2"
             Range="Melee"
             Type="P/S"
@@ -729,7 +740,7 @@ def roll(Dosh,wp):
             atkaDj="Str"
             DmgaDj="Str"
             Damage="1D2/1"
-            Range="Melee"
+            Range="Reach"
             Type="-"
             SpeeD="8"
             Weight="2"

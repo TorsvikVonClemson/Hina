@@ -13,6 +13,7 @@ from generators.adnd.charactersheet.race import eyes
 from generators.adnd.charactersheet.race import weight
 from generators.adnd.charactersheet.race import facialhair
 from generators.adnd.charactersheet.race import personality
+from generators.adnd.charactersheet.race import appearence
 from generators.adnd.charactersheet.classes import classes
 from generators.adnd.charactersheet.classes import saves
 from generators.adnd.charactersheet.classes import attribute
@@ -61,6 +62,7 @@ def main(x):
     person=personality.roll(race)
     eye=eyes.roll(eyes)
     motive=motivation.roll(race,god,playerclass)
+    app=appearence.roll(race,gender)
 
 #---Chargen Attributes---#
     attributes=attribute.roll(race,playerclass)
@@ -204,7 +206,7 @@ def main(x):
     pdfheader.append(lbs)
     pdfheader.append(str(hairs))
     pdfheader.append(eye)
-    pdfheader.append("UGLY")#TEMP SPACE FOR APPEARANCE
+    pdfheader.append(app)
     pdfheader.append(beard)
     pdfheader.append("Occupation")
     pdfheader.append(person)

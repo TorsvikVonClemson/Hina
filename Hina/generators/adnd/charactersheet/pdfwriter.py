@@ -5,12 +5,15 @@ import os
     #c.line(x1,y1,x2,y2)
 
 
-def write(header,motive,attributes,proficiencies,weapons,dosh,hp,armour,move,save,miscequ,skills,spelllist,weight,fp):
 
+
+
+def write(header,motive,attributes,proficiencies,weapons,dosh,hp,armour,move,save,miscequ,skills,spelllist,weight,fp):
 
     c=canvas.Canvas(fp)
     c.translate(inch,inch) #moves origin from bottom left to top left
     c.setFont("Helvetica",10)
+
     #c.setFillColorRGB(.8,.8,.8)
     #c.rect(-1*inch,-1*inch,9.27*inch,12.69*inch,fill=1) Potential Colours
     #c.setFillColorRGB(0,0,0)
@@ -114,9 +117,9 @@ def write(header,motive,attributes,proficiencies,weapons,dosh,hp,armour,move,sav
 
 #-----Appearance-----#
 
-    c.drawString(4.6*inch,10*inch,"Appearance:")
-    c.line(5.4*inch,9.95*inch,7*inch,9.95*inch)
-    c.drawString(5.4*inch,10*inch,str(len(miscequ)))  #tempspot to list equip length
+    c.drawString(4.6*inch,10*inch,"Trait:")
+    c.line(5*inch,9.95*inch,7*inch,9.95*inch)
+    c.drawString(5*inch,10*inch,header[13])
 
 #-----Reaction Adj.-----#
 
@@ -139,7 +142,7 @@ def write(header,motive,attributes,proficiencies,weapons,dosh,hp,armour,move,sav
 
     c.drawString(1.6*inch,9.75*inch,"Occupation:")
     c.line(2.4*inch,9.7*inch,4.1*inch,9.7*inch)
-    c.drawString(2.4*inch,9.75*inch,"Sailor")
+    c.drawString(2.4*inch,9.75*inch,"")
 
 #---Personality---#
 
@@ -209,7 +212,7 @@ def write(header,motive,attributes,proficiencies,weapons,dosh,hp,armour,move,sav
     c.drawString(-.8*inch,(xpos+.1)*inch,"CON")
     c.drawString(-.4*inch,(xpos+.1)*inch,str(attributes[11]))
     c.drawString(0*inch,(xpos+.1)*inch,"HP Adj.:")
-    c.drawString(.5*inch,(xpos+.1)*inch,attributes[12])
+    c.drawString(.6*inch,(xpos+.1)*inch,attributes[12])
     c.drawString(1*inch,(xpos+.1)*inch,"System Shock:")
     c.drawString(2*inch,(xpos+.1)*inch,attributes[13])
     c.drawString(2.5*inch,(xpos+.1)*inch,"Rez Survival:")
@@ -368,7 +371,7 @@ def write(header,motive,attributes,proficiencies,weapons,dosh,hp,armour,move,sav
 
 
 #------------------#
-# Begin Weapon Box #
+# Begin Weapon Box # Condense this section to a loop
 #------------------#
 
     xpos=xpos-.15
@@ -377,7 +380,7 @@ def write(header,motive,attributes,proficiencies,weapons,dosh,hp,armour,move,sav
     xpos=xpos-.4
     c.rect(-.9*inch,xpos*inch,8*inch,.3*inch)
 
-    xpos=xpos+.15
+    xpos=xpos+.11
     c.drawString(-.8*inch,xpos*inch,"Name")
     c.drawString(1.6*inch,xpos*inch,"RoF")
     c.drawString(2.1*inch,xpos*inch,"THAC0")
@@ -387,13 +390,14 @@ def write(header,motive,attributes,proficiencies,weapons,dosh,hp,armour,move,sav
     c.drawString(5.5*inch,xpos*inch,"Type")
     c.drawString(6*inch,xpos*inch,"Speed")
     c.drawString(6.6*inch,xpos*inch,"Weight")
+    xpos=xpos+.04
 
 #---Weapon 1---#
 
     xpos=xpos-.45
     c.rect(-.9*inch,xpos*inch,8*inch,.3*inch)
 
-    xpos=xpos+.15
+    xpos=xpos+.11
     c.drawString(-.8*inch,xpos*inch,weapons[1])
     weapons[2]=RateofFire(header[3],weapons[1],weapons[2])
     c.drawString(1.6*inch,xpos*inch,weapons[2])
@@ -411,13 +415,14 @@ def write(header,motive,attributes,proficiencies,weapons,dosh,hp,armour,move,sav
     c.drawString(5.5*inch,xpos*inch,weapons[7])
     c.drawString(6*inch,xpos*inch,weapons[8])
     c.drawString(6.6*inch,xpos*inch,weapons[9])
+    xpos=xpos+.04
 
 #---Weapon 2---#
 
     xpos=xpos-.45
     c.rect(-.9*inch,xpos*inch,8*inch,.3*inch)
 
-    xpos=xpos+.15
+    xpos=xpos+.11
     c.drawString(-.8*inch,xpos*inch,weapons[10])
     weapons[11]=RateofFire(header[3],weapons[10],weapons[11])
     c.drawString(1.6*inch,xpos*inch,weapons[11])
@@ -435,13 +440,14 @@ def write(header,motive,attributes,proficiencies,weapons,dosh,hp,armour,move,sav
     c.drawString(5.5*inch,xpos*inch,weapons[16])
     c.drawString(6*inch,xpos*inch,weapons[17])
     c.drawString(6.6*inch,xpos*inch,weapons[18])
+    xpos=xpos+.04
 
 #---Weapon 3---#
 
     xpos=xpos-.45
     c.rect(-.9*inch,xpos*inch,8*inch,.3*inch)
 
-    xpos=xpos+.15
+    xpos=xpos+.11
     c.drawString(-.8*inch,xpos*inch,weapons[19])
     weapons[20]=RateofFire(header[3],weapons[19],weapons[20])
     c.drawString(1.6*inch,xpos*inch,weapons[20])
@@ -459,13 +465,14 @@ def write(header,motive,attributes,proficiencies,weapons,dosh,hp,armour,move,sav
     c.drawString(5.5*inch,xpos*inch,weapons[25])
     c.drawString(6*inch,xpos*inch,weapons[26])
     c.drawString(6.6*inch,xpos*inch,weapons[27])
+    xpos=xpos+.04
 
 #---Weapon 4---#
 
     xpos=xpos-.45
     c.rect(-.9*inch,xpos*inch,8*inch,.3*inch)
 
-    xpos=xpos+.15
+    xpos=xpos+.11
     c.drawString(-.8*inch,xpos*inch,weapons[28])
     weapons[29]=RateofFire(header[3],weapons[28],weapons[29])
     c.drawString(1.6*inch,xpos*inch,weapons[29])
@@ -483,13 +490,14 @@ def write(header,motive,attributes,proficiencies,weapons,dosh,hp,armour,move,sav
     c.drawString(5.5*inch,xpos*inch,weapons[34])
     c.drawString(6*inch,xpos*inch,weapons[35])
     c.drawString(6.6*inch,xpos*inch,weapons[36])
+    xpos=xpos+.04
 
 #---Weapon 5---#
 
     xpos=xpos-.45
     c.rect(-.9*inch,xpos*inch,8*inch,.3*inch)
 
-    xpos=xpos+.15
+    xpos=xpos+.11
     c.drawString(-.8*inch,xpos*inch,weapons[37])
     weapons[38]=RateofFire(header[3],weapons[37],weapons[38])
     c.drawString(1.6*inch,xpos*inch,weapons[38])
@@ -507,6 +515,7 @@ def write(header,motive,attributes,proficiencies,weapons,dosh,hp,armour,move,sav
     c.drawString(5.5*inch,xpos*inch,weapons[43])
     c.drawString(6*inch,xpos*inch,weapons[44])
     c.drawString(6.6*inch,xpos*inch,weapons[45])
+    xpos=xpos+.04
 
 #---Grid Lines---#
 
@@ -729,10 +738,19 @@ def write(header,motive,attributes,proficiencies,weapons,dosh,hp,armour,move,sav
     c.drawString(4.9*inch,(xpos+2.7)*inch,"Special Abilities")
     c.rect(3.8*inch,xpos*inch,3.4*inch,2.85*inch)
 
-#---Column 1---#
+#---Fill With Special Rules---#
+    i=0
+    specialweapons=['Awl Pike','Bariche','Bec De Corbin','Bill','Bola','Caltrop','Fauchard','Glaive','Lasso','Long Spear','Spear','Main-Gauche','Mancatcher','Military Fork','Net','Parrying Dagger','Partisian','Ranseur','Sap','Scimitar','Scourge','Spear','Spetum','Staff Sling','Stiletto','Volgue','Whip']
+    while i<len(proficiencies):
+        if proficiencies[i] in specialweapons:
+            skills.append(proficiencies[i])
+        i+=1
 
+#---Fill Blank Spaces---#
     while len(skills)<20:
         skills.append("")
+
+#---Column 1---#
 
     c.drawString(3.9*inch,(xpos+2.5)*inch,skills[0])
     c.drawString(3.9*inch,(xpos+2.25)*inch,skills[1])
@@ -795,7 +813,24 @@ def write(header,motive,attributes,proficiencies,weapons,dosh,hp,armour,move,sav
 #--------#
 
     c.rect(-.9*inch,7.65*inch,8*inch,2.85*inch)
-    c.drawString(-.9*inch,10.25*inch,'Spells Per Day')
+    c.drawString(-.8*inch,10.25*inch,'Spells Per Day:')
+
+    spelllevel=attributes[25].split('/')
+    spellsperday=''
+
+    if header[3]=='Wizard':
+        spellsperday='1'
+    if header[3]=='Cleric':
+        startingspell=1
+
+        i=0
+        spelllevel[0]=str(int(spelllevel[0])+startingspell)
+        while i<len(spelllevel):
+            spellsperday=spellsperday+spelllevel[i]+'/'
+            i+=1
+
+    c.drawString(.4*inch,10.25*inch,spellsperday)
+        
 
 #---Column 1---#
     c.drawString(-.8*inch,10*inch,spelllist[0])
@@ -809,63 +844,63 @@ def write(header,motive,attributes,proficiencies,weapons,dosh,hp,armour,move,sav
     c.drawString(-.8*inch,8*inch,spelllist[8])
     c.drawString(-.8*inch,7.75*inch,spelllist[9])
 
-    c.line(-.8*inch,9.95*inch,2.1*inch,9.95*inch)
-    c.line(-.8*inch,9.7*inch,2.1*inch,9.7*inch)
-    c.line(-.8*inch,9.45*inch,2.1*inch,9.45*inch)
-    c.line(-.8*inch,9.2*inch,2.1*inch,9.2*inch)
-    c.line(-.8*inch,8.95*inch,2.1*inch,8.95*inch)
-    c.line(-.8*inch,8.7*inch,2.1*inch,8.7*inch)
-    c.line(-.8*inch,8.45*inch,2.1*inch,8.45*inch)
-    c.line(-.8*inch,8.2*inch,2.1*inch,8.2*inch)
-    c.line(-.8*inch,7.95*inch,2.1*inch,7.95*inch)
-    c.line(-.8*inch,7.7*inch,2.1*inch,7.7*inch)
+    c.line(-.8*inch,9.95*inch,1.6*inch,9.95*inch)
+    c.line(-.8*inch,9.7*inch,1.6*inch,9.7*inch)
+    c.line(-.8*inch,9.45*inch,1.6*inch,9.45*inch)
+    c.line(-.8*inch,9.2*inch,1.6*inch,9.2*inch)
+    c.line(-.8*inch,8.95*inch,1.6*inch,8.95*inch)
+    c.line(-.8*inch,8.7*inch,1.6*inch,8.7*inch)
+    c.line(-.8*inch,8.45*inch,1.6*inch,8.45*inch)
+    c.line(-.8*inch,8.2*inch,1.6*inch,8.2*inch)
+    c.line(-.8*inch,7.95*inch,1.6*inch,7.95*inch)
+    c.line(-.8*inch,7.7*inch,1.6*inch,7.7*inch)
 
 
 #---Column 2---#
-    c.drawString(2.2*inch,10*inch,spelllist[10])
-    c.drawString(2.2*inch,9.75*inch,spelllist[11])
-    c.drawString(2.2*inch,9.5*inch,spelllist[12])
-    c.drawString(2.2*inch,9.25*inch,spelllist[13])
-    c.drawString(2.2*inch,9*inch,spelllist[14])
-    c.drawString(2.2*inch,8.75*inch,spelllist[15])
-    c.drawString(2.2*inch,8.5*inch,spelllist[16])
-    c.drawString(2.2*inch,8.25*inch,spelllist[17])
-    c.drawString(2.2*inch,8*inch,spelllist[18])
-    c.drawString(2.2*inch,7.75*inch,spelllist[19])
+    c.drawString(1.7*inch,10*inch,spelllist[10])
+    c.drawString(1.7*inch,9.75*inch,spelllist[11])
+    c.drawString(1.7*inch,9.5*inch,spelllist[12])
+    c.drawString(1.7*inch,9.25*inch,spelllist[13])
+    c.drawString(1.7*inch,9*inch,spelllist[14])
+    c.drawString(1.7*inch,8.75*inch,spelllist[15])
+    c.drawString(1.7*inch,8.5*inch,spelllist[16])
+    c.drawString(1.7*inch,8.25*inch,spelllist[17])
+    c.drawString(1.7*inch,8*inch,spelllist[18])
+    c.drawString(1.7*inch,7.75*inch,spelllist[19])
 
-    c.line(2.2*inch,9.95*inch,5.2*inch,9.95*inch)
-    c.line(2.2*inch,9.7*inch,5.2*inch,9.7*inch)
-    c.line(2.2*inch,9.45*inch,5.2*inch,9.45*inch)
-    c.line(2.2*inch,9.2*inch,5.2*inch,9.2*inch)
-    c.line(2.2*inch,8.95*inch,5.2*inch,8.95*inch)
-    c.line(2.2*inch,8.7*inch,5.2*inch,8.7*inch)
-    c.line(2.2*inch,8.45*inch,5.2*inch,8.45*inch)
-    c.line(2.2*inch,8.2*inch,5.2*inch,8.2*inch)
-    c.line(2.2*inch,7.95*inch,5.2*inch,7.95*inch)
-    c.line(2.2*inch,7.7*inch,5.2*inch,7.7*inch)
+    c.line(1.7*inch,9.95*inch,4.2*inch,9.95*inch)
+    c.line(1.7*inch,9.7*inch,4.2*inch,9.7*inch)
+    c.line(1.7*inch,9.45*inch,4.2*inch,9.45*inch)
+    c.line(1.7*inch,9.2*inch,4.2*inch,9.2*inch)
+    c.line(1.7*inch,8.95*inch,4.2*inch,8.95*inch)
+    c.line(1.7*inch,8.7*inch,4.2*inch,8.7*inch)
+    c.line(1.7*inch,8.45*inch,4.2*inch,8.45*inch)
+    c.line(1.7*inch,8.2*inch,4.2*inch,8.2*inch)
+    c.line(1.7*inch,7.95*inch,4.2*inch,7.95*inch)
+    c.line(1.7*inch,7.7*inch,4.2*inch,7.7*inch)
 
 #---Column 3---#
-    c.drawString(5.3*inch,10*inch,spelllist[20])
-    c.drawString(5.3*inch,9.75*inch,spelllist[21])
-    c.drawString(5.3*inch,9.5*inch,spelllist[22])
-    c.drawString(5.3*inch,9.25*inch,spelllist[23])
-    c.drawString(5.3*inch,9*inch,spelllist[24])
-    c.drawString(5.3*inch,8.75*inch,spelllist[25])
-    c.drawString(5.3*inch,8.5*inch,spelllist[26])
-    c.drawString(5.3*inch,8.25*inch,spelllist[27])
-    c.drawString(5.3*inch,8*inch,spelllist[28])
-    c.drawString(5.3*inch,7.75*inch,spelllist[29])
+    c.drawString(4.3*inch,10*inch,spelllist[20])
+    c.drawString(4.3*inch,9.75*inch,spelllist[21])
+    c.drawString(4.3*inch,9.5*inch,spelllist[22])
+    c.drawString(4.3*inch,9.25*inch,spelllist[23])
+    c.drawString(4.3*inch,9*inch,spelllist[24])
+    c.drawString(4.3*inch,8.75*inch,spelllist[25])
+    c.drawString(4.3*inch,8.5*inch,spelllist[26])
+    c.drawString(4.3*inch,8.25*inch,spelllist[27])
+    c.drawString(4.3*inch,8*inch,spelllist[28])
+    c.drawString(4.3*inch,7.75*inch,spelllist[29])
 
-    c.line(5.3*inch,9.95*inch,8.3*inch,9.95*inch)
-    c.line(5.3*inch,9.7*inch,8.3*inch,9.7*inch)
-    c.line(5.3*inch,9.45*inch,8.3*inch,9.45*inch)
-    c.line(5.3*inch,9.2*inch,8.3*inch,9.2*inch)
-    c.line(5.3*inch,8.95*inch,8.3*inch,8.95*inch)
-    c.line(5.3*inch,8.7*inch,8.3*inch,8.7*inch)
-    c.line(5.3*inch,8.45*inch,8.3*inch,8.45*inch)
-    c.line(5.3*inch,8.2*inch,8.3*inch,8.2*inch)
-    c.line(5.3*inch,7.95*inch,8.3*inch,7.95*inch)
-    c.line(5.3*inch,7.7*inch,8.3*inch,7.7*inch)
+    c.line(4.3*inch,9.95*inch,6.8*inch,9.95*inch)
+    c.line(4.3*inch,9.7*inch,6.8*inch,9.7*inch)
+    c.line(4.3*inch,9.45*inch,6.8*inch,9.45*inch)
+    c.line(4.3*inch,9.2*inch,6.8*inch,9.2*inch)
+    c.line(4.3*inch,8.95*inch,6.8*inch,8.95*inch)
+    c.line(4.3*inch,8.7*inch,6.8*inch,8.7*inch)
+    c.line(4.3*inch,8.45*inch,6.8*inch,8.45*inch)
+    c.line(4.3*inch,8.2*inch,6.8*inch,8.2*inch)
+    c.line(4.3*inch,7.95*inch,6.8*inch,7.95*inch)
+    c.line(4.3*inch,7.7*inch,6.8*inch,7.7*inch)
 
 
 #--------------------------#
@@ -874,32 +909,57 @@ def write(header,motive,attributes,proficiencies,weapons,dosh,hp,armour,move,sav
 
     xpos=0
     inc=0
-    c.setFont("Helvetica",9)
+    specialweapons=['Awl Pike','Bariche','Bec De Corbin','Bill','Bola','Caltrop','Fauchard','Glaive','Lasso','Long Spear','Spear','Main-Gauche','Mancatcher','Military Fork','Net','Parrying Dagger','Partisian','Ranseur','Sap','Scimitar','Scourge','Spear','Spetum','Staff Sling','Stiletto','Volgue','Whip']
 
-    flufflist=[header[2],header[5]]
+#   listformat=[subfolder,filelocation1,filelocation2,filelocationX...  
+
+    c.drawString(2.5*inch,(7.4-(xpos*.15))*inch,"~~~~~Quick Reference~~~~~")
+    xpos+=2
+
+    ruleslist=['rules','fulldef','running','dualwielding']
     i=0
-    while i<len(flufflist):
-        inc=0
-        file = "/generators/adnd/charactersheet/resources/{}".format(header[2].lower())+"/{}.txt".format(flufflist[i].lower())
-        path=os.getcwd()+file
-        fp=open(path,'r+');
-        with open(path,"r") as text_file:
-            lines=text_file.readlines()
-            text_file.close()
-            while len(lines)>inc:
-                lines[0+inc]=lines[0+inc].rstrip("\n")
-                inc+=1
+    while i<len(specialweapons):
+        if specialweapons[i] in proficiencies:
+            specialweapons[i]=specialweapons[i].lower()
+            specialweapons[i]=specialweapons[i].replace(" ", "")
+            ruleslist.append(specialweapons[i])
+        if (specialweapons[i]+' Specialist') in proficiencies:
+            specialweapons[i]=specialweapons[i].lower()
+            specialweapons[i]=specialweapons[i].replace(" ", "")
+            ruleslist.append(specialweapons[i])
+        i+=1
 
-        inc=0
+    xpos=fluffy(ruleslist,xpos,c)
 
-        while len(lines)>inc:
-            c.drawString(-.8*inch,(7.4-(xpos*.15))*inch,lines[0+inc])
-            inc+=1
-            xpos+=1
+    c.drawString(2.5*inch,(7.4-(xpos*.15))*inch,"~~~~~Fluff~~~~~")
+    xpos+=2
+    flufflist=[header[2],header[2],header[5]]
+    xpos=fluffy(flufflist,xpos,c)
 
-        c.rect(-.9*inch,(7.4-(xpos*.15))*inch,8*inch,((inc+1)*.15)*inch)
-        i +=1
-        xpos+=2
+
+#    i=0
+#    while i<len(flufflist):
+#        inc=0
+#        file = "/generators/adnd/charactersheet/resources/{}".format(header[2].lower())+"/{}.txt".format(flufflist[i].lower())
+#        path=os.getcwd()+file
+#        fp=open(path,'r+');
+#        with open(path,"r") as text_file:
+#            lines=text_file.readlines()
+#            text_file.close()
+#            while len(lines)>inc:
+#                lines[0+inc]=lines[0+inc].rstrip("\n")
+#                inc+=1
+#
+#        inc=0
+#
+#        while len(lines)>inc:
+#            c.drawString(-.8*inch,(7.4-(xpos*.15))*inch,lines[0+inc])
+#            inc+=1
+#            xpos+=1
+#
+#        c.rect(-.9*inch,(7.4-(xpos*.15))*inch,8*inch,((inc+1)*.15)*inch)
+#        i +=1
+#        xpos+=2
 
 
 
@@ -972,3 +1032,46 @@ def DamageAdj(based,stronk,spec):
     if spec.find("Specialist") != -1:
         damage=damage+2
     return str(damage)
+
+def fluffy(location,xpos,c):
+
+    c.setFont("Helvetica",9)
+    i=1
+    reset=0
+    while i<len(location):
+        inc=0
+        file = "/generators/adnd/charactersheet/resources/{}".format(location[0].lower())+"/{}.txt".format(location[i].lower())
+        path=os.getcwd()+file
+        fp=open(path,'r+');
+        with open(path,"r") as text_file:
+            lines=text_file.readlines()
+            text_file.close()
+            while len(lines)>inc:
+                lines[0+inc]=lines[0+inc].rstrip("\n")
+                inc+=1
+
+        inc=0
+
+        while len(lines)>inc:
+            c.drawString(-.8*inch,(7.4-(xpos*.15))*inch,lines[inc])
+            inc+=1
+            xpos+=1
+            if (7.4-(xpos*.15))<=0:
+                c.drawString(2*inch,(7.4-(xpos*.15))*inch,"~~~~~CONTINUED ON NEXT PAGE~~~~~")
+                xpos+=1
+                reset=inc
+                c.rect(-.9*inch,(7.4-(xpos*.15))*inch,8*inch,((inc+2)*.15)*inch)
+                c.showPage()
+                c.translate(inch,inch)
+                c.setFont("Helvetica",8.5)
+                xpos=-18
+        c.rect(-.9*inch,(7.4-(xpos*.15))*inch,8*inch,((inc+1-reset)*.15)*inch)
+        reset=0
+        i +=1
+        xpos+=2
+        if (7.4-(xpos*.15))<=0:
+            c.showPage()
+            c.translate(inch,inch)
+            c.setFont("Helvetica",9)
+    c.setFont("Helvetica",10)
+    return xpos
